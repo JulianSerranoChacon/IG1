@@ -16,7 +16,15 @@ Scene::init()
 	// Textures
 
 	// Graphics objects (entities) of the scene
-	gObjects.push_back(new RegularPolygon(6,200));
+	RegularPolygon* triangle = new RegularPolygon(3, 200);
+	triangle->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
+	gObjects.push_back(triangle);
+
+	RegularPolygon* circle = new RegularPolygon(100, 200);
+	circle->setMColor(glm::dvec4(255.0, 0.0, 255.0, 1.0));
+	gObjects.push_back(circle);
+
+
 	gObjects.push_back(new EjesRGB(400.0));
 }
 void

@@ -10,7 +10,7 @@ class Abs_Entity // abstract class
 {
 public:
 	Abs_Entity()
-	  : mModelMat(1.0){}; // 4x4 identity matrix
+	  : mModelMat(1.0), mColor(1){}; // 4x4 identity matrix
 	virtual ~Abs_Entity() = default;
 
 	Abs_Entity(const Abs_Entity& e) = delete;            // no copy constructor
@@ -21,8 +21,13 @@ public:
 	// modeling matrix
 	glm::dmat4 const& modelMat() const { return mModelMat; };
 	void setModelMat(glm::dmat4 const& aMat) { mModelMat = aMat; };
+	// Métodos de colo añadidos en el apartado 4
+	glm::dvec4 const& getMColor()const { return mColor; };
+	void setMColor(glm::dvec4 const& newColor) { mColor = newColor; };
 
 protected:
+	// variable de color añadida en el apartado 4
+	glm::dvec4 mColor;
 	Mesh* mMesh = nullptr; // the mesh
 	glm::dmat4 mModelMat;  // modeling matrix
 

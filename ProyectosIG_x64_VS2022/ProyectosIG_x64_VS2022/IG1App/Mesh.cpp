@@ -26,7 +26,6 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	//creaos polígono
 	for (int i = 0; i < mesh->mNumVertices; i++) {
 		mesh->vVertices.emplace_back(r * cos(radians(alpha)), r * sin(radians(alpha)), 0);
-		mesh->vColors.emplace_back(0, 0, 0, 1);
 		alpha += 360.0/ num;
 	}
 	//guardamos primitiva

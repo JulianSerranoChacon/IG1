@@ -7,7 +7,7 @@ RegularPolygon::RegularPolygon(int num, int r): Abs_Entity()
 
 RegularPolygon::~RegularPolygon()
 {
-
+	delete mMesh;
 }
 
 void RegularPolygon::render(glm::dmat4 const& modelViewMat) const
@@ -16,8 +16,10 @@ void RegularPolygon::render(glm::dmat4 const& modelViewMat) const
 		glm::dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
 		upload(aMat);
 		glLineWidth(2);
-		mMesh->render();
+		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+		mMesh->render( );
 		glLineWidth(1);
+		glColor4d(1,1,1,1);
 	}
 }
 
