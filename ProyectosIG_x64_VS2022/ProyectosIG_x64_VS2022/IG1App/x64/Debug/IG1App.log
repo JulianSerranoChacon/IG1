@@ -1,0 +1,5 @@
+﻿  Scene.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(35,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(35,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(35,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+  IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe
