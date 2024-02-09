@@ -3,6 +3,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "RegularPolygon.h"
+#include "RGBTriangle.h"
+#include "RGBRectange.h"
 
 using namespace glm;
 
@@ -16,9 +18,16 @@ Scene::init()
 	// Textures
 
 	// Graphics objects (entities) of the scene
-	RegularPolygon* triangle = new RegularPolygon(3, 200);
+	/*RegularPolygon* triangle = new RegularPolygon(3, 200);
 	triangle->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
-	gObjects.push_back(triangle);
+	gObjects.push_back(triangle);*/
+
+	/*RGBTriangle* treiangleRGB = new RGBTriangle(150);
+	treiangleRGB->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
+	gObjects.push_back(treiangleRGB);*/
+
+	RGBRectange* rectangle = new RGBRectange(100, 200);
+	gObjects.push_back(rectangle);
 
 	RegularPolygon* circle = new RegularPolygon(100, 200);
 	circle->setMColor(glm::dvec4(255.0, 0.0, 255.0, 1.0));

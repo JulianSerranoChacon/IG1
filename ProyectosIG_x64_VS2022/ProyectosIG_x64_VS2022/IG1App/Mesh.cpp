@@ -33,6 +33,59 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	return mesh;
 }
 
+Mesh* Mesh::generateRGBTriangle(GLdouble r)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateRegularPolygon(3, r);
+
+	mesh->vColors.reserve(mesh->mNumVertices);
+
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+
+	//guardamos primitiva
+	mesh->mPrimitive = GL_TRIANGLES;
+	return mesh;
+}
+
+Mesh* Mesh::generateRectangle(GLdouble w, GLdouble h)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = new Mesh();
+	//Desde dónde queremos emprezar (ángulo)
+
+	//inicializamos los vertices de la malla
+	mesh->mNumVertices = 4;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(-w*0.5, -h*0.5, 0.0);
+	mesh->vVertices.emplace_back(w * 0.5, -h * 0.5, 0.0);
+	mesh->vVertices.emplace_back(-w * 0.5, h * 0.5, 0.0);
+	mesh->vVertices.emplace_back(w * 0.5, h * 0.5, 0.0);
+
+	//guardamos primitiva
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+	return mesh;
+}
+
+Mesh* Mesh::generateRGBRectangle(GLdouble w, GLdouble h)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateRectangle(w, h);
+
+	mesh->vColors.reserve(mesh->mNumVertices);
+
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+
+	return mesh;
+}
+
+
+
 void
 Mesh::render() const
 {

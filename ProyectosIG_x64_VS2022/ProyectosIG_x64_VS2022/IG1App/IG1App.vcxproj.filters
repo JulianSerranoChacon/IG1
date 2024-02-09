@@ -39,6 +39,12 @@
     <ClInclude Include="RegularPolygon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="RGBTriangle.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="RGBRectange.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene.cpp">
@@ -63,6 +69,12 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="RegularPolygon.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="RGBTriangle.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="RGBRectange.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

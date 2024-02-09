@@ -1,2 +1,5 @@
-﻿  RegularPolygon.cpp
-  IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe
+﻿  Scene.cpp
+C:\Users\usuario_local\Documents\GitHub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(52,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\usuario_local\Documents\GitHub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(52,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\usuario_local\Documents\GitHub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(52,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+  IG1App.vcxproj -> C:\Users\usuario_local\Documents\GitHub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe
