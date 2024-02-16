@@ -84,6 +84,84 @@ Mesh* Mesh::generateRGBRectangle(GLdouble w, GLdouble h)
 	return mesh;
 }
 
+Mesh* Mesh::generateCube(GLdouble lenght)
+{
+
+	//Creamos el mesh a devolver
+	Mesh* mesh = new Mesh();
+	GLdouble m = lenght / 2.0;
+	//inicializamos los vertices de la malla
+	mesh->mNumVertices = 36;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(-m, -m, -m);//0
+	mesh->vVertices.emplace_back(m, -m, -m);//1
+	mesh->vVertices.emplace_back(m, -m, m);//2
+	mesh->vVertices.emplace_back(-m, -m, -m);//0
+	mesh->vVertices.emplace_back(m, -m, m);//2
+	mesh->vVertices.emplace_back(-m, -m, m);//3
+
+	mesh->vVertices.emplace_back(-m, -m, m);//3
+	mesh->vVertices.emplace_back(-m, m, m);//4
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(-m, -m, m);//3
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(-m, -m, -m);//0
+
+	mesh->vVertices.emplace_back(-m, -m, -m);//0
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(m, -m, -m);//1
+	mesh->vVertices.emplace_back(m, -m, -m);//1
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(m, m, -m);//6
+
+	mesh->vVertices.emplace_back(-m, m, m);//4
+	mesh->vVertices.emplace_back(m, m, -m);//6	
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(-m, m, m);//4
+	mesh->vVertices.emplace_back(m, m, m);//7
+	mesh->vVertices.emplace_back(m, m, -m);//6	
+
+	mesh->vVertices.emplace_back(m, m, -m);//6	
+	mesh->vVertices.emplace_back(m, m, m);//7
+	mesh->vVertices.emplace_back(m, -m, -m);//1
+	mesh->vVertices.emplace_back(m, -m, -m);//1
+	mesh->vVertices.emplace_back(m, m, m);//7
+	mesh->vVertices.emplace_back(m, -m, m);//2
+
+	mesh->vVertices.emplace_back(m, -m, m);//2
+	mesh->vVertices.emplace_back(m, m, m);//7
+	mesh->vVertices.emplace_back(-m, -m, m);//3
+	mesh->vVertices.emplace_back(m, m, m);//7
+	mesh->vVertices.emplace_back(-m, m, m);//4
+	mesh->vVertices.emplace_back(-m, -m, m);//3
+
+
+	mesh->mPrimitive = GL_TRIANGLES;
+
+	return mesh;
+}
+
+Mesh* Mesh::generateRGBCubeTriangles(GLdouble lenght)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateCube(lenght);
+
+	mesh->vColors.reserve(mesh->mNumVertices);
+	int x, y, z;
+
+	for (int i = 0; i < 6; i++) {
+		x = (i % 3) % 2;
+		y = ((i + 1) % 3) % 2;
+		z = ((i + 2) % 3) % 2;
+		for (int j = 0; j < 6; j++) {
+			mesh->vColors.emplace_back(x, y, z, 1.0);
+		}
+	}
+
+	return mesh;
+}
+
 
 
 void

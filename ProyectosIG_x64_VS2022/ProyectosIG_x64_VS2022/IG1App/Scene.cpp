@@ -5,6 +5,8 @@
 #include "RegularPolygon.h"
 #include "RGBTriangle.h"
 #include "RGBRectange.h"
+#include "Cube.h"
+#include "RGBCube.h"
 
 using namespace glm;
 
@@ -26,13 +28,18 @@ Scene::init()
 	treiangleRGB->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
 	gObjects.push_back(treiangleRGB);*/
 
-	RGBRectange* rectangle = new RGBRectange(100, 200);
-	gObjects.push_back(rectangle);
+	//RGBRectange* rectangle = new RGBRectange(100, 200);
+	//gObjects.push_back(rectangle);
 
-	RegularPolygon* circle = new RegularPolygon(100, 200);
-	circle->setMColor(glm::dvec4(255.0, 0.0, 255.0, 1.0));
-	gObjects.push_back(circle);
+	//Cube* cube = new Cube(200);
+	//gObjects.push_back(cube);
 
+	//RegularPolygon* circle = new RegularPolygon(100, 200);
+	//circle->setMColor(glm::dvec4(255.0, 0.0, 255.0, 1.0));
+	//gObjects.push_back(circle);
+
+	RGBCube* cubeRGB = new RGBCube(200);
+	gObjects.push_back(cubeRGB);
 
 	gObjects.push_back(new EjesRGB(400.0));
 }
