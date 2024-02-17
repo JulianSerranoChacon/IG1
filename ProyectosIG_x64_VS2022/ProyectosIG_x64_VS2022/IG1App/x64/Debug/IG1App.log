@@ -1,4 +1,10 @@
-﻿  Mesh.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(27,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(29,17): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
-  IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe
+﻿  Scene.cpp
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(61,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(61,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(61,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(96,3): error C2360: la inicialización de 'triangle' se omite en la etiqueta 'case'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(92,20): message : vea la declaración de 'triangle'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(96,3): error C2360: la inicialización de 'rectangle' se omite en la etiqueta 'case'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(89,17): message : vea la declaración de 'rectangle'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(96,3): error C2360: la inicialización de 'treiangleRGB' se omite en la etiqueta 'case'
+C:\Users\Pablo\Documents\UNIVERSIDAD\2º\IG\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(85,17): message : vea la declaración de 'treiangleRGB'
