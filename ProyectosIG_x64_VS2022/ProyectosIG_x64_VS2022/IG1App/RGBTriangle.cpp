@@ -31,7 +31,9 @@ void RGBTriangle::render(glm::dmat4 const& modelViewMat) const
 
 void RGBTriangle::update()
 {
-	//glm::dmat4 m ;
-	mModelMat = glm::rotate(mModelMat, glm::radians(-10.0), glm::dvec3(0, 0, 1));
-
+	glm::dmat4 m ;
+	m = glm::translate(mModelMat, glm::dvec3(-200,0, 0));
+	m = glm::rotate(m, glm::radians(10.0), glm::dvec3(0, 0, 1));
+	m = glm::translate(m, glm::dvec3(200,0, 0));
+	setModelMat(m);
 }
