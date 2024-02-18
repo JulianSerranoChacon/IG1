@@ -2,6 +2,7 @@
 #include "CheckML.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 #include "RegularPolygon.h"
 #include "RGBTriangle.h"
 #include "RGBRectange.h"
@@ -43,7 +44,7 @@ Scene::init()
 
 	//gObjects.push_back(new EjesRGB(400.0));
 
-	setScene(0);
+	//setScene(0);
 }
 void
 Scene::free()
@@ -52,6 +53,7 @@ Scene::free()
 	for (Abs_Entity* el : gObjects) {
 		delete el;
 		el = nullptr;
+		gObjects.pop_back();
 	}
 }
 void
@@ -78,26 +80,37 @@ Scene::render(Camera const& cam) const
 	}
 }
 
+void Scene::update()
+{
+	for (Abs_Entity* el : gObjects) {
+		el->update();
+	}
+}
+
 void Scene::setScene(int id) {
 	free();
 	switch (id) {
 		case 0:
-			RGBTriangle* triangleRGB = new RGBTriangle(50);
+			triangleRGB = new RGBTriangle(50);
 			triangleRGB->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
+			glm::dmat4 m = glm::translate(triangleRGB->modelMat(), dvec3(r, 0, 0));
+			triangleRGB->setModelMat(m);
 			gObjects.push_back(triangleRGB);
 
-			RGBRectange* rectangle = new RGBRectange(100, 150);
+			rectangle = new RGBRectange(100, 150);
 			gObjects.push_back(rectangle);
 
-			RegularPolygon* circle = new RegularPolygon(200, 200);
+			circle = new RegularPolygon(200, r);
 			circle->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
 			gObjects.push_back(circle);
 			break;
 		case 1:
-			RGBCube* cubeRGB = new RGBCube(200);
+			cubeRGB = new RGBCube(200);
 			gObjects.push_back(cubeRGB);
 			break;
+			default:
+				break;
 	}
-
-	
+	ejesRGB = new EjesRGB(400.0);
+	gObjects.push_back(ejesRGB);
 }

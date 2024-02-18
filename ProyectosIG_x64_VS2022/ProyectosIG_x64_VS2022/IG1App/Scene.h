@@ -8,9 +8,22 @@
 #include "Entity.h"
 
 #include <vector>
+class RGBTriangle;
+class RGBRectange;
+class RegularPolygon;
+class RGBCube;
+
 
 class Scene
 {
+private:
+	RGBTriangle* triangleRGB = nullptr;
+	RGBRectange* rectangle = nullptr;
+	RegularPolygon* circle = nullptr;
+	RGBCube* cubeRGB = nullptr;
+	EjesRGB* ejesRGB = nullptr;
+	const int r= 200;
+
 public:
 	Scene() = default;
 	~Scene()
@@ -25,6 +38,7 @@ public:
 	void init();
 
 	void render(Camera const& cam) const;
+	void update();
 
 	void setScene(int);
 
