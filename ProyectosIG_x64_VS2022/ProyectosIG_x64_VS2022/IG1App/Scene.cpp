@@ -93,6 +93,7 @@ void Scene::setScene(int id) {
 		case 0:
 			triangleRGB = new RGBTriangle(50);
 			triangleRGB->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
+			triangleRGB->setMr(r);
 			glm::dmat4 m = glm::translate(triangleRGB->modelMat(), dvec3(r, 0, 0));
 			triangleRGB->setModelMat(m);
 			gObjects.push_back(triangleRGB);

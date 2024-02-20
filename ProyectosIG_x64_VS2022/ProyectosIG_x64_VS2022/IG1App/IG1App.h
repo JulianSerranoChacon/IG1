@@ -1,9 +1,9 @@
 #ifndef _H_IG1App_H_
 #define _H_IG1App_H_
 
-// #include <gl/GL.h>    // OpenGL
-// #include <gl/GLU.h>   // OpenGL Utility Library
-// #include <GL/glut.h>  // OpenGL Utility Toolkit
+ //#include <gl/GL.h>    // OpenGL
+ //#include <gl/GLU.h>   // OpenGL Utility Library
+//#include <GL/glut.h>  // OpenGL Utility Toolkit
 
 #include <GL/freeglut.h> // OpenGL Utility Toolkit
 #include <glm/glm.hpp>   // OpenGL Mathematics
@@ -49,6 +49,9 @@ protected:
 	static void s_resize(int newWidth, int newHeight) { s_ig1app.resize(newWidth, newHeight); };
 	static void s_key(unsigned char key, int x, int y) { s_ig1app.key(key, x, y); };
 	static void s_specialKey(int key, int x, int y) { s_ig1app.specialKey(key, x, y); };
+
+	static void update();
+	void updateNotStatic();
 
 	// Viewport position and size
 	Viewport* mViewPort = nullptr;
