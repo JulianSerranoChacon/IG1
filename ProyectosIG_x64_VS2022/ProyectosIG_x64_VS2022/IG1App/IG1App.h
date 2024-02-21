@@ -3,7 +3,7 @@
 
  //#include <gl/GL.h>    // OpenGL
  //#include <gl/GLU.h>   // OpenGL Utility Library
-//#include <GL/glut.h>  // OpenGL Utility Toolkit
+#include <GL/glut.h>  // OpenGL Utility Toolkit
 
 #include <GL/freeglut.h> // OpenGL Utility Toolkit
 #include <glm/glm.hpp>   // OpenGL Mathematics
@@ -64,6 +64,10 @@ protected:
 	int mWinId = 0;     // window's identifier
 	int mWinW = 800;    // window's width
 	int mWinH = 600;    // window's height
+
+	bool shouldUpdate = false;
+	const float delay = 80000;
+	float currentDelay = 0;
 };
 
 #endif //_H_IG1App_H_

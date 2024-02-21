@@ -71,6 +71,9 @@ IG1App::iniWinOpenGL()
 
 	// Callback registration
 	glutReshapeFunc(s_resize);
+
+	glutIdleFunc(update);
+
 	glutKeyboardFunc(s_key);
 	glutSpecialFunc(s_specialKey);
 	glutDisplayFunc(s_display);
@@ -137,15 +140,17 @@ IG1App::key(unsigned char key, int x, int y)
 			break;
 		case '0':
 			mScene->setScene(0);
+			shouldUpdate = false;
 			break;
 		case '1':
 			mScene->setScene(1);
 			break;
 		case 'u':
-			mScene->update();
+			if(!s_ig1app.shouldUpdate)
+				mScene->update();
 			break;
 		case 'U':
-			glutIdleFunc(update);
+			shouldUpdate = true;
 			break;
 		default:
 			need_redisplay = false;
@@ -194,7 +199,15 @@ IG1App::specialKey(int key, int x, int y)
 
 void IG1App::update()
 {
-	s_ig1app.updateNotStatic();
+	if (s_ig1app.shouldUpdate) {
+		if (s_ig1app.delay <= s_ig1app.currentDelay) {
+			s_ig1app.updateNotStatic();
+			glutPostRedisplay();
+			s_ig1app.currentDelay = 0;
+		}
+		else
+		s_ig1app.currentDelay++;
+	}
 }
 
 void IG1App::updateNotStatic()
