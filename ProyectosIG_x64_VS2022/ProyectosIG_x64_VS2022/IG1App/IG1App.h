@@ -51,7 +51,6 @@ protected:
 	static void s_specialKey(int key, int x, int y) { s_ig1app.specialKey(key, x, y); };
 
 	static void update();
-	void updateNotStatic();
 
 	// Viewport position and size
 	Viewport* mViewPort = nullptr;

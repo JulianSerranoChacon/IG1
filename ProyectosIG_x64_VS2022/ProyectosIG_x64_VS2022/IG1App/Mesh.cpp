@@ -151,9 +151,9 @@ Mesh* Mesh::generateRGBCubeTriangles(GLdouble lenght)
 	int x, y, z;
 
 	for (int i = 0; i < 6; i++) {
-		x = (i % 3) % 2;
-		y = ((i + 1) % 3) % 2;
-		z = ((i + 2) % 3) % 2;
+		y = (i % 3) % 2;
+		z = ((i + 1) % 3) % 2;
+		x = ((i + 2) % 3) % 2;
 		for (int j = 0; j < 6; j++) {
 			mesh->vColors.emplace_back(x, y, z, 1.0);
 		}

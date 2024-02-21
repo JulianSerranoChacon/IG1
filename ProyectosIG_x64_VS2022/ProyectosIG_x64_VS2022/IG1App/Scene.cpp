@@ -106,7 +106,9 @@ void Scene::setScene(int id) {
 			gObjects.push_back(circle);
 			break;
 		case 1:
-			cubeRGB = new RGBCube(200);
+			cubeRGB = new RGBCube(100);
+			glm::dmat4 ma = glm::translate(cubeRGB->modelMat(), dvec3(50, 50, -50));
+			cubeRGB->setModelMat(ma);
 			gObjects.push_back(cubeRGB);
 			break;
 			default:

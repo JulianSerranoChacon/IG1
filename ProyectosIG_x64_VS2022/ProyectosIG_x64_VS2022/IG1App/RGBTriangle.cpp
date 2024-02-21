@@ -1,7 +1,6 @@
 ﻿#include "RGBTriangle.h"
-
-
 #include <glm/gtc/matrix_transform.hpp>
+
 
 RGBTriangle::RGBTriangle(int r): Abs_Entity()
 {
