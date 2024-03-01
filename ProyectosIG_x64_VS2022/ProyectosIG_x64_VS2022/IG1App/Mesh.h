@@ -29,6 +29,8 @@ public:
 	static Mesh* generateCube(GLdouble lenght);
 	static Mesh* generateRGBCubeTriangles(GLdouble lenght);
 	static Mesh* generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh);
+	static Mesh* generateBoxOutline(GLdouble length);
+	static Mesh* generateBoxOutlineTexCor(GLdouble longitud);
 
 protected:
 	GLuint mPrimitive =

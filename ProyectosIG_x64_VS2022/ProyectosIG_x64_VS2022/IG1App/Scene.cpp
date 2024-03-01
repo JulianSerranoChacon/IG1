@@ -9,6 +9,7 @@
 #include "Cube.h"
 #include "RGBCube.h"
 #include "Ground.h"
+#include "BoxOutline.h"
 
 using namespace glm;
 
@@ -115,9 +116,12 @@ void Scene::setScene(int id) {
 			gObjects.push_back(cubeRGB);
 			break;
 		case 2:
-			ground = new Ground(100, 150);
+			ground = new Ground(150, 150);
 			gObjects.push_back(ground);
 			break;
+		case 3:
+			box = new BoxOutline(100);
+			gObjects.push_back(box);
 			break;
 		default:
 				break;

@@ -174,6 +174,54 @@ Mesh* Mesh::generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh
 	mesh->vTexCoords.emplace_back(glm::dvec2(1 * rh, 0));
 	mesh->vTexCoords.emplace_back(glm::dvec2(1 * rh, 1 * rw));
 
+
+	
+	return mesh;
+}
+
+Mesh* Mesh::generateBoxOutline(GLdouble length)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = new Mesh();
+	GLdouble m = length / 2.0;
+	//inicializamos los vertices de la malla
+	mesh->mNumVertices = 10;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(m, m, m);//1
+	mesh->vVertices.emplace_back(m, -m, m); //0
+	mesh->vVertices.emplace_back(m, m, -m);//3
+	mesh->vVertices.emplace_back(m, -m, -m);//2
+	mesh->vVertices.emplace_back(-m, m, -m);//5
+	mesh->vVertices.emplace_back(-m, -m, -m);//4
+	mesh->vVertices.emplace_back(-m, m, m);//7
+	mesh->vVertices.emplace_back(-m, -m, m);//6
+	mesh->vVertices.emplace_back(m, m, m);//9
+	mesh->vVertices.emplace_back(m, -m, m);//8
+
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+	return mesh;
+}
+
+Mesh* Mesh::generateBoxOutlineTexCor(GLdouble longitud)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = Mesh::generateBoxOutline(longitud);
+
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 1));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 1));
+
+	mesh->vTexCoords.emplace_back(glm::dvec2(2, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(2, 1));
+	mesh->vTexCoords.emplace_back(glm::dvec2(3, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(3, 1));
+
+	mesh->vTexCoords.emplace_back(glm::dvec2(4, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(4, 1));
+
 	return mesh;
 }
 

@@ -13,6 +13,7 @@ class RGBRectange;
 class RegularPolygon;
 class RGBCube;
 class Ground;
+class BoxOutline;
 
 
 class Scene
@@ -24,6 +25,7 @@ private:
 	RGBCube* cubeRGB = nullptr;
 	EjesRGB* ejesRGB = nullptr;
 	Ground* ground = nullptr;
+	BoxOutline* box = nullptr;
 	const int r= 200;
 
 public:
