@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "Mesh.h"
+#include "Texture.h"
 
 class Abs_Entity // abstract class
 {
@@ -26,11 +27,15 @@ public:
 	glm::dvec4 const& getMColor()const { return mColor; };
 	void setMColor(glm::dvec4 const& newColor) { mColor = newColor; };
 
+	void setTexture(Texture& tex);
+
 protected:
 	// variable de color añadida en el apartado 4
 	glm::dvec4 mColor;
 	Mesh* mMesh = nullptr; // the mesh
 	glm::dmat4 mModelMat;  // modeling matrix
+
+	Texture* mTexture = nullptr;
 
 	// transfers modelViewMat to the GPU
 	virtual void upload(glm::dmat4 const& mModelViewMat) const;

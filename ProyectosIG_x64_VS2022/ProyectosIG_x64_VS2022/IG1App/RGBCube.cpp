@@ -23,9 +23,9 @@ void RGBCube::render(glm::dmat4 const& modelViewMat) const
 
 void RGBCube::update()
 {
-	grades -= 5;
+	grades -= 2;
 
-	glm::dmat4 m1 = glm::rotate(glm::dmat4(1.0), glm::radians(5.0), glm::dvec3(rotX, rotY, rotZ));
+	glm::dmat4 m1 = glm::rotate(glm::dmat4(1.0), glm::radians(2.0), glm::dvec3(rotX, rotY, rotZ));
 	m1 = m1 * mModelMat;
 	setModelMat(m1);
 

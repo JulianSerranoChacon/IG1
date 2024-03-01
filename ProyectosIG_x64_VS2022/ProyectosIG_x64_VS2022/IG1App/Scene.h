@@ -12,6 +12,7 @@ class RGBTriangle;
 class RGBRectange;
 class RegularPolygon;
 class RGBCube;
+class Ground;
 
 
 class Scene
@@ -22,6 +23,7 @@ private:
 	RegularPolygon* circle = nullptr;
 	RGBCube* cubeRGB = nullptr;
 	EjesRGB* ejesRGB = nullptr;
+	Ground* ground = nullptr;
 	const int r= 200;
 
 public:

@@ -1,6 +1,7 @@
 #include "Mesh.h"
 #include "CheckML.h"
 #include <fstream>
+#include "Texture.h"
 using namespace std;
 using namespace glm;
 
@@ -162,6 +163,20 @@ Mesh* Mesh::generateRGBCubeTriangles(GLdouble lenght)
 	return mesh;
 }
 
+Mesh* Mesh::generateRectangleTexCor(GLdouble w, GLdouble h, GLuint rw, GLuint rh)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateRectangle(w, h);
+
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 1 * rw));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1 * rh, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1 * rh, 1 * rw));
+
+	return mesh;
+}
+
 
 
 void
@@ -179,11 +194,18 @@ Mesh::render() const
 			  4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of
 			                                    // each component, stride, pointer
 		}
+		if (vTexCoords.size() > 0) {
+
+			//texruras
+			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+			glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());
+		}
 
 		draw();
 
 		glDisableClientState(GL_COLOR_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	}
 }
 

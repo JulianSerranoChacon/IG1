@@ -5,6 +5,11 @@
 
 using namespace glm;
 
+void Abs_Entity::setTexture(Texture& tex)
+{
+	mTexture = &tex;
+}
+
 void
 Abs_Entity::upload(dmat4 const& modelViewMat) const
 {

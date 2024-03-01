@@ -146,6 +146,10 @@ IG1App::key(unsigned char key, int x, int y)
 			mScene->setScene(1);
 			shouldUpdate = false;
 			break;
+		case '2':
+			mScene->setScene(2);
+			shouldUpdate = false;
+			break;
 		case 'u':
 			if(!s_ig1app.shouldUpdate)
 				mScene->update();
@@ -203,12 +207,12 @@ void IG1App::update()
 	if (s_ig1app.shouldUpdate) {
 		//Como en cada procesador es distinto he comentado un delay del update para que en nuestros ordenadores no fuese demasiado rápido
 
-		//if (s_ig1app.delay <= s_ig1app.currentDelay) {
+		if (s_ig1app.delay <= s_ig1app.currentDelay) {
 			s_ig1app.mScene->update();
 			glutPostRedisplay();
-			//s_ig1app.currentDelay = 0;
-		//}
-		//else
-		//s_ig1app.currentDelay++;
+			s_ig1app.currentDelay = 0;
+		}
+		else
+		s_ig1app.currentDelay++;
 	}
 }

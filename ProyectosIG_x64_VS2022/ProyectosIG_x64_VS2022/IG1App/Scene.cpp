@@ -8,6 +8,7 @@
 #include "RGBRectange.h"
 #include "Cube.h"
 #include "RGBCube.h"
+#include "Ground.h"
 
 using namespace glm;
 
@@ -62,12 +63,14 @@ Scene::setGL()
 	// OpenGL basic setting
 	glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)
 	glEnable(GL_DEPTH_TEST);          // enable Depth test
+	glEnable(GL_TEXTURE_2D);
 }
 void
 Scene::resetGL()
 {
 	glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)
 	glDisable(GL_DEPTH_TEST);     // disable Depth test
+	glDisable(GL_TEXTURE_2D);
 }
 
 void
@@ -111,7 +114,12 @@ void Scene::setScene(int id) {
 			cubeRGB->setModelMat(ma);
 			gObjects.push_back(cubeRGB);
 			break;
-			default:
+		case 2:
+			ground = new Ground(100, 150);
+			gObjects.push_back(ground);
+			break;
+			break;
+		default:
 				break;
 	}
 	ejesRGB = new EjesRGB(400.0);
