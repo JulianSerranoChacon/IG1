@@ -249,6 +249,27 @@ Mesh* Mesh::generateStar3D(GLdouble re, GLuint np, GLdouble h)
 	return mesh;
 }
 
+Mesh* Mesh::generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateStar3D(re, np, h);
+
+	//Desde dónde queremos emprezar (ángulo)
+	float alpha = 90;
+
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+	float num = 360.0 / (mesh->mNumVertices - 2);
+	//creaos polígono
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 0));
+	for (int i = 0; i < mesh->mNumVertices; i++) {
+		mesh->vTexCoords.emplace_back(glm::dvec2(cos(radians(alpha)) * 0.5, sin(radians(alpha)) * 0.5));
+		mesh->vTexCoords.emplace_back(glm::dvec2(cos(radians(alpha + num)) * 0.5, sin(radians(alpha + num)) * 0.5));
+		alpha += num * 2;
+	}
+
+	return mesh;
+}
+
 
 
 void

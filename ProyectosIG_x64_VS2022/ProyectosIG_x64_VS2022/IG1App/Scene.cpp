@@ -121,7 +121,11 @@ void Scene::setScene(int id) {
 			gObjects.push_back(box);
 			break;
 		case 4:
-			star = new Star3D(100,6,100);
+			star = new Star3D(100,8,100);
+			t = new Texture();
+			t->load("../bmps/baldosaP.bmp", 1);
+			gTextures.push_back(t);
+			star->setTexture(gTextures[0]);
 			gObjects.push_back(star);
 			break;
 		default:

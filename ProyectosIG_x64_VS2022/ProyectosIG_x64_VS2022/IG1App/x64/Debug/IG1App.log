@@ -1,4 +1,8 @@
-﻿  BoxOutline.cpp
-  Star3D.cpp
-  Generando código...
+﻿  Mesh.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(28,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(30,17): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(238,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(241,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(261,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Mesh.cpp(264,20): warning C4018: '<': no coinciden signed/unsigned
   IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe

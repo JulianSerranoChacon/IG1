@@ -24,14 +24,12 @@ void BoxOutline::render(glm::dmat4 const& modelViewMat) const
 		glm::dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
 		upload(aMat);
 		mMesh->render();
-		glLineWidth(1);
 		mTexture->unbind();
 		glCullFace(GL_FRONT);
 		secondaryTexture->setWrap(GL_REPEAT);
 		secondaryTexture->bind(GL_REPLACE); 
 		upload(aMat);
 		mMesh->render();
-		glLineWidth(1);
 		secondaryTexture->unbind();
 	}
 }
