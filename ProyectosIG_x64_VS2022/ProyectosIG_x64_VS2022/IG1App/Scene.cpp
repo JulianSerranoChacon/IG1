@@ -10,6 +10,7 @@
 #include "RGBCube.h"
 #include "Ground.h"
 #include "BoxOutline.h"
+#include "Star3D.h"
 
 using namespace glm;
 
@@ -21,32 +22,6 @@ Scene::init()
 	// allocate memory and load resources
 	// Lights
 	// Textures
-
-	// Graphics objects (entities) of the scene
-	/*RegularPolygon* triangle = new RegularPolygon(3, 200);
-	triangle->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
-	gObjects.push_back(triangle);*/
-
-	/*RGBTriangle* treiangleRGB = new RGBTriangle(150);
-	treiangleRGB->setMColor(glm::dvec4(0.0, 255.0, 255.0, 1.0));
-	gObjects.push_back(treiangleRGB);*/
-
-	//RGBRectange* rectangle = new RGBRectange(100, 200);
-	//gObjects.push_back(rectangle);
-
-	//Cube* cube = new Cube(200);
-	//gObjects.push_back(cube);
-
-	//RegularPolygon* circle = new RegularPolygon(100, 200);
-	//circle->setMColor(glm::dvec4(255.0, 0.0, 255.0, 1.0));
-	//gObjects.push_back(circle);
-
-	//RGBCube* cubeRGB = new RGBCube(200);
-	//gObjects.push_back(cubeRGB);
-
-	//gObjects.push_back(new EjesRGB(400.0));
-
-	//setScene(0);
 }
 void
 Scene::free()
@@ -56,6 +31,12 @@ Scene::free()
 		delete el;
 		el = nullptr;
 		gObjects.pop_back();
+	}
+
+	for (Texture* el : gTextures) {
+		delete el;
+		el = nullptr;
+		gTextures.pop_back();
 	}
 }
 void
@@ -117,11 +98,31 @@ void Scene::setScene(int id) {
 			break;
 		case 2:
 			ground = new Ground(150, 150);
+
+			t1 = new Texture();
+			t1->load("../bmps/baldosaC.bmp", 1);
+			gTextures.push_back(t1);
+
+			ground->setTexture(gTextures[0]);
 			gObjects.push_back(ground);
 			break;
 		case 3:
 			box = new BoxOutline(100);
+
+			t = new Texture();
+			t->load("../bmps/container.bmp", 1);
+			gTextures.push_back(t);
+			t2 = new Texture();
+			t2->load("../bmps/papelE.bmp", 1);
+			gTextures.push_back(t2);
+
+			box->setTexture(gTextures[0]);
+			box->setSecundaryTexture(gTextures[1]);
 			gObjects.push_back(box);
+			break;
+		case 4:
+			star = new Star3D(100,6,100);
+			gObjects.push_back(star);
 			break;
 		default:
 				break;

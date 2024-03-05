@@ -27,7 +27,7 @@ public:
 	glm::dvec4 const& getMColor()const { return mColor; };
 	void setMColor(glm::dvec4 const& newColor) { mColor = newColor; };
 
-	void setTexture(Texture& tex);
+	void setTexture(Texture* tex);
 
 protected:
 	// variable de color añadida en el apartado 4

@@ -5,9 +5,9 @@
 
 using namespace glm;
 
-void Abs_Entity::setTexture(Texture& tex)
+void Abs_Entity::setTexture(Texture* tex)
 {
-	mTexture = &tex;
+	mTexture = tex;
 }
 
 void

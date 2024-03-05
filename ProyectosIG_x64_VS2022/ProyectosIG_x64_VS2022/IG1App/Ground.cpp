@@ -6,14 +6,11 @@ Ground::Ground(GLdouble w, GLdouble h)
 
 	mMesh = Mesh::generateRectangleTexCor(w, h,4,4);
 	mModelMat = glm::rotate(mModelMat, glm::radians(-90.0), glm::dvec3(1, 0, 0));
-	mTexture = new Texture();
-	mTexture->load("../bmps/baldosaC.bmp", 1);
 }
 
 Ground::~Ground()
 {
 	delete mMesh;
-	delete mTexture;
 }
 
 void Ground::render(glm::dmat4 const& modelViewMat) const

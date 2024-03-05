@@ -14,6 +14,7 @@ class RegularPolygon;
 class RGBCube;
 class Ground;
 class BoxOutline;
+class Star3D;
 
 
 class Scene
@@ -26,6 +27,10 @@ private:
 	EjesRGB* ejesRGB = nullptr;
 	Ground* ground = nullptr;
 	BoxOutline* box = nullptr;
+	Texture* t = nullptr;
+	Texture* t1 = nullptr;
+	Texture* t2 = nullptr;
+	Star3D* star = nullptr;
 	const int r= 200;
 
 public:
@@ -52,6 +57,7 @@ protected:
 	void resetGL();
 
 	std::vector<Abs_Entity*> gObjects; // Entities (graphic objects) of the scene
+	std::vector <Texture* > gTextures; //Texturas de los objetos
 
 	int mId;
 };

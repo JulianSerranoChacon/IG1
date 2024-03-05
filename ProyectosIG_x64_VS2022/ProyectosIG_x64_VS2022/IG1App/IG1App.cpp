@@ -154,6 +154,10 @@ IG1App::key(unsigned char key, int x, int y)
 			mScene->setScene(3);
 			shouldUpdate = false;
 			break;
+		case '4':
+			mScene->setScene(4);
+			shouldUpdate = false;
+			break;
 		case 'u':
 			if(!s_ig1app.shouldUpdate)
 				mScene->update();

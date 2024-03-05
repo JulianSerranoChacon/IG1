@@ -225,6 +225,30 @@ Mesh* Mesh::generateBoxOutlineTexCor(GLdouble longitud)
 	return mesh;
 }
 
+Mesh* Mesh::generateStar3D(GLdouble re, GLuint np, GLdouble h)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = new Mesh();
+
+	//Desde dónde queremos emprezar (ángulo)
+	float alpha = 90;
+	//inicializamos los vertices de la malla
+	mesh->mNumVertices = (np * 2) + 2;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+	float num = 360.0 / (mesh->mNumVertices - 2);
+	//creaos polígono
+	mesh->vVertices.emplace_back(0, 0, 0);
+	for (int i = 0; i < mesh->mNumVertices; i++) {
+		mesh->vVertices.emplace_back(re * cos(radians(alpha)), re * sin(radians(alpha)), h);
+		mesh->vVertices.emplace_back(re/2 * cos(radians(alpha + num)), re/2 * sin(radians(alpha+ num)), h);
+		alpha += num * 2;
+	}
+	//guardamos primitiva
+	mesh->mPrimitive = GL_TRIANGLE_FAN;
+
+	return mesh;
+}
+
 
 
 void
