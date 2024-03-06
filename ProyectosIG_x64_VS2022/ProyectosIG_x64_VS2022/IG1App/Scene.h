@@ -15,6 +15,7 @@ class RGBCube;
 class Ground;
 class BoxOutline;
 class Star3D;
+class GlassParapet;
 
 
 class Scene
@@ -31,6 +32,7 @@ private:
 	Texture* t1 = nullptr;
 	Texture* t2 = nullptr;
 	Star3D* star = nullptr;
+	GlassParapet* parapet = nullptr;
 	const int r= 200;
 
 public:

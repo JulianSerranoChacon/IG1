@@ -11,6 +11,7 @@
 #include "Ground.h"
 #include "BoxOutline.h"
 #include "Star3D.h"
+#include "GlassParapet.h"
 
 using namespace glm;
 
@@ -127,6 +128,16 @@ void Scene::setScene(int id) {
 			gTextures.push_back(t);
 			star->setTexture(gTextures[0]);
 			gObjects.push_back(star);
+			break;
+		case 5:
+			parapet = new GlassParapet(100);
+			glm::dmat4 mb = glm::scale(parapet->modelMat(), dvec3(1, 0.5, 1));
+			parapet->setModelMat(mb);
+			t = new Texture();
+			t->load("../bmps/windowV.bmp", GL_ALPHA + 400);
+			gTextures.push_back(t);
+			parapet->setTexture(gTextures[0]);
+			gObjects.push_back(parapet);
 			break;
 		default:
 				break;

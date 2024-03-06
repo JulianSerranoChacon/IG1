@@ -31,6 +31,7 @@ void BoxOutline::render(glm::dmat4 const& modelViewMat) const
 		upload(aMat);
 		mMesh->render();
 		secondaryTexture->unbind();
+		glDisable(GL_CULL_FACE);
 	}
 }
 
