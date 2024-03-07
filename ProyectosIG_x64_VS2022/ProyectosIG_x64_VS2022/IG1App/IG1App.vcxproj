@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Box.h" />
     <ClInclude Include="BoxOutline.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CheckML.h" />
@@ -78,6 +79,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="IG1App.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Photo.h" />
     <ClInclude Include="Pixmap32RGBA.h" />
     <ClInclude Include="RegularPolygon.h" />
     <ClInclude Include="RGBCube.h" />
@@ -86,9 +88,11 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Star3D.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Top.h" />
     <ClInclude Include="Viewport.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="BoxOutline.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cube.cpp" />
@@ -98,6 +102,7 @@
     <ClCompile Include="IG1App.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Photo.cpp" />
     <ClCompile Include="Pixmap32RGBA.cpp" />
     <ClCompile Include="RegularPolygon.cpp" />
     <ClCompile Include="RGBCube.cpp" />
@@ -106,6 +111,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Star3D.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Top.cpp" />
     <ClCompile Include="Viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

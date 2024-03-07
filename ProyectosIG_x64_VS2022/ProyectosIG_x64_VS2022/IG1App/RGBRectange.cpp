@@ -20,5 +20,6 @@ void RGBRectange::render(glm::dmat4 const& modelViewMat) const
 		upload(aMat);
 		mMesh->render();
 		glLineWidth(1);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 }

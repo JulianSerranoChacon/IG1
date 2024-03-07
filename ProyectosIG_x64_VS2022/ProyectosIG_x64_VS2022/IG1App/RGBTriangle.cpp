@@ -16,8 +16,6 @@ void RGBTriangle::render(glm::dmat4 const& modelViewMat) const
 {
 	if (mMesh != nullptr) {
 		glPolygonMode(GL_FRONT, GL_FILL);
-
-		//glPolygonMode(GL_BACK, GL_LINE); para que aparezcan las líneas
 		glPolygonMode(GL_BACK, GL_POINT);
 
 		glPointSize(5);
@@ -25,6 +23,7 @@ void RGBTriangle::render(glm::dmat4 const& modelViewMat) const
 		upload(aMat);
 		mMesh->render();
 		glPointSize(1);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 }
 

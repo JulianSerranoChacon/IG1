@@ -12,6 +12,8 @@
 #include "BoxOutline.h"
 #include "Star3D.h"
 #include "GlassParapet.h"
+#include "Photo.h"
+#include "Box.h"
 
 using namespace glm;
 
@@ -106,9 +108,16 @@ void Scene::setScene(int id) {
 
 			ground->setTexture(gTextures[0]);
 			gObjects.push_back(ground);
+
+			/*photo = new Photo(200, 100);
+			t = new Texture();
+			t->loadColorBuffer(200, 100);
+			photo->setTexture(t);
+			gTextures.push_back(t);
+			gObjects.push_back(photo);*/
 			break;
 		case 3:
-			box = new BoxOutline(100);
+			boxOutline = new BoxOutline(100);
 
 			t = new Texture();
 			t->load("../bmps/container.bmp", 1);
@@ -117,9 +126,9 @@ void Scene::setScene(int id) {
 			t2->load("../bmps/papelE.bmp", 1);
 			gTextures.push_back(t2);
 
-			box->setTexture(gTextures[0]);
-			box->setSecundaryTexture(gTextures[1]);
-			gObjects.push_back(box);
+			boxOutline->setTexture(gTextures[0]);
+			boxOutline->setSecundaryTexture(gTextures[1]);
+			gObjects.push_back(boxOutline);
 			break;
 		case 4:
 			star = new Star3D(100,8,100);
@@ -134,10 +143,25 @@ void Scene::setScene(int id) {
 			glm::dmat4 mb = glm::scale(parapet->modelMat(), dvec3(1, 0.5, 1));
 			parapet->setModelMat(mb);
 			t = new Texture();
-			t->load("../bmps/windowV.bmp", GL_ALPHA + 400);
+			t->load("../bmps/windowV.bmp", GL_ALPHA + 375);
 			gTextures.push_back(t);
 			parapet->setTexture(gTextures[0]);
 			gObjects.push_back(parapet);
+			break;
+		case 6:
+			box = new Box(100);
+
+			t = new Texture();
+			t->load("../bmps/container.bmp", 1);
+			gTextures.push_back(t);
+			t2 = new Texture();
+			t2->load("../bmps/papelE.bmp", 1);
+			gTextures.push_back(t2);
+
+			box->setTexture(gTextures[0]);
+			box->setTopsTexture(gTextures[0]);
+			box->setSecundaryTexture(gTextures[1]);
+			gObjects.push_back(box);
 			break;
 		default:
 				break;

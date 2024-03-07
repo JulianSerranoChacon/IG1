@@ -25,6 +25,7 @@ void BoxOutline::render(glm::dmat4 const& modelViewMat) const
 		upload(aMat);
 		mMesh->render();
 		mTexture->unbind();
+
 		glCullFace(GL_FRONT);
 		secondaryTexture->setWrap(GL_REPEAT);
 		secondaryTexture->bind(GL_REPLACE); 
