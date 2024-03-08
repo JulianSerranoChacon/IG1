@@ -1,6 +1,0 @@
-Julián Serrano Chacón
-Pablo Marcos Serrano
-
-Hemos realizado la parte opcional de la animación del cubo.
-Como nuestros procesadores eran demasiado rápidos para el apartado 16 teníamos un coolDown (está comentado, pero descomentándolo funciona).
-Al cambiar de escena detenemos las animaciones del evento.

@@ -1,9 +1,0 @@
-﻿  Box.cpp
-  Scene.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(49,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(49,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(49,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(146,44): warning C4305: 'argumento': truncamiento de 'int' a 'GLubyte'
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\IG1App\Scene.cpp(146,44): warning C4309: 'argumento': truncamiento de valor constante
-  Generando código...
-  IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\ProyectosIG_x64_VS2022\bin\IG1AppDebug.exe

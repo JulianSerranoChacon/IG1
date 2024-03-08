@@ -1,0 +1,40 @@
+﻿  Box.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Box.cpp(68,14): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+  BoxOutline.cpp
+  Camera.cpp
+  Cube.cpp
+  Entity.cpp
+  GlassParapet.cpp
+  Grass.cpp
+  Ground.cpp
+  IG1App.cpp
+  main.cpp
+  Mesh.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(28,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(30,17): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(238,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(241,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(261,12): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Mesh.cpp(264,20): warning C4018: '<': no coinciden signed/unsigned
+  Photo.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Photo.cpp(30,32): warning C4244: 'argumento': conversión de 'GLdouble' a 'GLsizei'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Photo.cpp(30,28): warning C4244: 'argumento': conversión de 'GLdouble' a 'GLsizei'; posible pérdida de datos
+  Pixmap32RGBA.cpp
+  RegularPolygon.cpp
+  RGBCube.cpp
+  RGBRectange.cpp
+  RGBTriangle.cpp
+  Scene.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(50,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(50,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(50,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(115,55): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(216,56): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
+  Star3D.cpp
+  Texture.cpp
+  Generando código...
+  Compilando...
+  Top.cpp
+  Viewport.cpp
+  Generando código...
+  IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\bin\IG1AppDebug.exe
