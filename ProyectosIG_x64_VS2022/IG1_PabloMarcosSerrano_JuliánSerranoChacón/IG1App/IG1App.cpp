@@ -169,6 +169,10 @@ IG1App::key(unsigned char key, int x, int y)
 		case '7':
 			mScene->setScene(7);
 			shouldUpdate = false;
+			mCamera->set3D();
+			break;
+		case 'p':
+			mCamera->changePrj();
 			break;
 		case 'u':
 			if(!s_ig1app.shouldUpdate)
@@ -202,21 +206,27 @@ IG1App::specialKey(int key, int x, int y)
 	switch (key) {
 		case GLUT_KEY_RIGHT:
 			if (mdf == GLUT_ACTIVE_CTRL)
-				mCamera->pitch(-1); // rotates -1 on the X axis
+				//mCamera->pitch(-1); // rotates -1 on the X axis
+				mCamera->moveLR(-1);
 			else
-				mCamera->pitch(1); // rotates 1 on the X axis
+				//mCamera->pitch(1); // rotates 1 on the X axis
+				mCamera->moveLR(1);
 			break;
 		case GLUT_KEY_LEFT:
 			if (mdf == GLUT_ACTIVE_CTRL)
-				mCamera->yaw(1); // rotates 1 on the Y axis
+				//mCamera->yaw(1); // rotates 1 on the Y axis
+				mCamera->moveUD(1);
 			else
-				mCamera->yaw(-1); // rotate -1 on the Y axis
+				//mCamera->yaw(-1); // rotate -1 on the Y axis
+				mCamera->moveUD(-1);
 			break;
 		case GLUT_KEY_UP:
-			mCamera->roll(1); // rotates 1 on the Z axis
+			//mCamera->roll(1); // rotates 1 on the Z axis
+			mCamera->moveFB(1);
 			break;
 		case GLUT_KEY_DOWN:
-			mCamera->roll(-1); // rotates -1 on the Z axis
+			//mCamera->roll(-1); // rotates -1 on the Z axis
+			mCamera->moveFB(-1);
 			break;
 		default:
 			need_redisplay = false;

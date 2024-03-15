@@ -2,7 +2,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-// #include <glm/gtc/matrix_access.hpp>
+#include <glm/gtc/matrix_access.hpp>
 
 using namespace glm;
 
@@ -18,6 +18,34 @@ Camera::Camera(Viewport* vp)
 	setPM();
 }
 
+void Camera::setAxes()
+{
+	mRight = row(mViewMat, 0);
+	mUpward = row(mViewMat, 1);
+	mFront = -row(mViewMat, 2);
+}
+
+void Camera::moveLR(GLdouble cs)
+{
+	mEye.x += cs;
+	mLook.x+= cs;	
+	setVM();
+}
+
+void Camera::moveFB(GLdouble cs)
+{
+	mEye.z += cs;
+	mLook.z += cs;
+	setVM();
+}
+
+void Camera::moveUD(GLdouble cs)
+{
+	mEye.y += cs;
+	mLook.y += cs;
+	setVM();
+}
+
 void
 Camera::uploadVM() const
 {
@@ -29,6 +57,7 @@ void
 Camera::setVM()
 {
 	mViewMat = lookAt(mEye, mLook, mUp); // glm::lookAt defines the view matrix
+	setAxes();
 }
 
 void
@@ -89,6 +118,12 @@ Camera::setScale(GLdouble s)
 	setPM();
 }
 
+void Camera::changePrj()
+{
+	bOrto = !bOrto;
+	setPM();
+}
+
 void
 Camera::setPM()
 {
@@ -100,6 +135,14 @@ Camera::setPM()
 		                 mNearVal,
 		                 mFarVal);
 		// glm::ortho defines the orthogonal projection matrix
+	}
+	else {
+		mProjMat = frustum(xLeft * mScaleFact,
+			xRight * mScaleFact,
+			yBot * mScaleFact,
+			yTop * mScaleFact,
+			mNearVal * 300,
+			mFarVal * 300);
 	}
 }
 
