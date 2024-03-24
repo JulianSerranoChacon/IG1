@@ -1,6 +1,7 @@
 #include "IG1App.h"
 #include "CheckML.h"
 #include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
 
 using namespace std;
 
@@ -141,34 +142,53 @@ IG1App::key(unsigned char key, int x, int y)
 		case '0':
 			mScene->setScene(0);
 			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->changeProjMat();
+			mCamera->set2D();
 			break;
 		case '1':
 			mScene->setScene(1);
 			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->set3D();
 			break;
 		case '2':
 			mScene->setScene(2);
 			shouldUpdate = false;
+
+			mCamera->resetProjMat();
+			mCamera->set3D();
 			break;
 		case '3':
 			mScene->setScene(3);
 			shouldUpdate = false;
+
+			mCamera->resetProjMat();
+			mCamera->set3D();
 			break;
 		case '4':
 			mScene->setScene(4);
 			shouldUpdate = false;
+
+			mCamera->resetProjMat();
+			mCamera->set3D();
 			break;
 		case '5':
 			mScene->setScene(5);
 			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->set3D();
 			break;
 		case '6':
 			mScene->setScene(6);
 			shouldUpdate = false;
+			mCamera->resetProjMat();;
+			mCamera->set3D();
 			break;
 		case '7':
 			mScene->setScene(7);
 			shouldUpdate = false;
+			mCamera->resetProjMat();
 			mCamera->set3D();
 			break;
 		case 'p':
@@ -177,6 +197,9 @@ IG1App::key(unsigned char key, int x, int y)
 		case 'u':
 			if(!s_ig1app.shouldUpdate)
 				mScene->update();
+
+			if(mScene->getScene() == 0)
+				mCamera->update();
 			break;
 		case 'F':
 			mScene->takePhoto();
@@ -206,27 +229,33 @@ IG1App::specialKey(int key, int x, int y)
 	switch (key) {
 		case GLUT_KEY_RIGHT:
 			if (mdf == GLUT_ACTIVE_CTRL)
-				//mCamera->pitch(-1); // rotates -1 on the X axis
-				mCamera->moveLR(-1);
+				mCamera->pitch(-1); // rotates -1 on the X axis
+				//mCamera->moveLR(-1);
+				//mCamera->rollReal(1);
 			else
-				//mCamera->pitch(1); // rotates 1 on the X axis
-				mCamera->moveLR(1);
+				mCamera->pitch(1); // rotates 1 on the X axis
+				//moveLR(1);
+				//mCamera->rollReal(-1);
 			break;
 		case GLUT_KEY_LEFT:
 			if (mdf == GLUT_ACTIVE_CTRL)
-				//mCamera->yaw(1); // rotates 1 on the Y axis
-				mCamera->moveUD(1);
+				mCamera->yaw(1); // rotates 1 on the Y axis
+				//mCamera->moveUD(1);
+				//mCamera->yawReal(1);
 			else
-				//mCamera->yaw(-1); // rotate -1 on the Y axis
-				mCamera->moveUD(-1);
+				mCamera->yaw(-1); // rotate -1 on the Y axis
+				//mCamera->moveUD(-1);
+				//mCamera->yawReal(-1);
 			break;
 		case GLUT_KEY_UP:
-			//mCamera->roll(1); // rotates 1 on the Z axis
-			mCamera->moveFB(1);
+			mCamera->roll(1); // rotates 1 on the Z axis
+			//mCamera->moveFB(1);
+			//mCamera->pitchReal(-1);
 			break;
 		case GLUT_KEY_DOWN:
-			//mCamera->roll(-1); // rotates -1 on the Z axis
-			mCamera->moveFB(-1);
+			mCamera->roll(-1); // rotates -1 on the Z axis
+			//mCamera->moveFB(-1);
+			//mCamera->pitchReal(1);
 			break;
 		default:
 			need_redisplay = false;

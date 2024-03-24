@@ -31,6 +31,12 @@ void
 Scene::free()
 { // release memory and resources
 
+	for (Abs_Entity* el : gObjectsTrans) {
+		delete el;
+		el = nullptr;
+		gObjectsTrans.pop_back();
+	}
+
 	for (Abs_Entity* el : gObjects) {
 		delete el;
 		el = nullptr;
@@ -67,6 +73,10 @@ Scene::render(Camera const& cam) const
 	for (Abs_Entity* el : gObjects) {
 		el->render(cam.viewMat());
 	}
+
+	for (Abs_Entity* el : gObjectsTrans) {
+		el->render(cam.viewMat());
+	}
 }
 
 void Scene::update()
@@ -78,6 +88,7 @@ void Scene::update()
 
 void Scene::setScene(int id) {
 	free();
+	mId = id;
 	switch (id) {
 		case 0:
 			triangleRGB = new RGBTriangle(50);
@@ -154,7 +165,7 @@ void Scene::setScene(int id) {
 			t->load("../bmps/windowV.bmp", 100);
 			gTextures.push_back(t);
 			parapet->setTexture(gTextures[0]);
-			gObjects.push_back(parapet);
+			gObjectsTrans.push_back(parapet);
 			break;
 		case 6:
 			box = new Box(100);
@@ -201,7 +212,7 @@ void Scene::setScene(int id) {
 			t3->load("../bmps/windowV.bmp", 100);
 			gTextures.push_back(t3);
 			parapet->setTexture(t3);
-			gObjects.push_back(parapet);
+			gObjectsTrans.push_back(parapet);
 
 			star = new Star3D(50, 8, 50);
 			star->setModelMat(glm::translate(star->modelMat(), glm::dvec3(0, 200, 0)));

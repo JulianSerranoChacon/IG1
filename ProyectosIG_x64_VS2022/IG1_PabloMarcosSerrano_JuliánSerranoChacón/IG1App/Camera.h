@@ -49,6 +49,15 @@ public:
 	void moveFB(GLdouble cs); // Adelante/Atrás
 	void moveUD(GLdouble cs); // Arriba/Abajo
 
+	void pitchReal(GLdouble cs);
+	void yawReal(GLdouble cs);
+	void rollReal(GLdouble cs);
+
+	void update();
+
+	void changeProjMat();
+	void resetProjMat();
+
 protected:
 	glm::dvec3 mEye = {0.0, 0.0, 500.0}; // camera's position
 	glm::dvec3 mLook = {0.0, 0.0, 0.0};  // target's position
@@ -66,7 +75,7 @@ protected:
 	void uploadPM() const; // transfers projMat to the GPU
 
 	GLdouble xRight, xLeft, yTop, yBot;     // size of scene visible area
-	GLdouble mNearVal = 1, mFarVal = 10000; // view volume
+	GLdouble mNearVal = 500, mFarVal = 10000; // view volume
 	GLdouble mScaleFact = 1;                // scale factor
 	bool bOrto = true;                      // orthogonal or perspective projection
 
@@ -74,6 +83,9 @@ protected:
 
 	void setVM();
 	void setPM();
+private:
+	glm::dmat4 m2;
+	glm::dmat4 mProjMatInitial;
 };
 
 #endif //_H_Camera_H_

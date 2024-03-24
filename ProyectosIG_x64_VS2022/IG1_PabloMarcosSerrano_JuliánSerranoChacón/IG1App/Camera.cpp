@@ -7,15 +7,16 @@
 using namespace glm;
 
 Camera::Camera(Viewport* vp)
-  : mViewMat(1.0)
-  , mProjMat(1.0)
-  , xRight(vp->width() / 2.0)
-  , xLeft(-xRight)
-  , yTop(vp->height() / 2.0)
-  , yBot(-yTop)
-  , mViewPort(vp)
+	: mViewMat(1.0)
+	, mProjMat(1.0)
+	, xRight(vp->width() / 2.0)
+	, xLeft(-xRight)
+	, yTop(vp->height() / 2.0)
+	, yBot(-yTop)
+	, mViewPort(vp)
 {
 	setPM();
+	mProjMatInitial = mProjMat;
 }
 
 void Camera::setAxes()
@@ -27,23 +28,61 @@ void Camera::setAxes()
 
 void Camera::moveLR(GLdouble cs)
 {
-	mEye.x += cs;
-	mLook.x+= cs;	
+	mEye += mRight * cs;
+	mLook += mRight * cs;	
 	setVM();
 }
 
 void Camera::moveFB(GLdouble cs)
 {
-	mEye.z += cs;
-	mLook.z += cs;
+	mEye +=  mFront * cs;
+	mLook += mFront * cs;
 	setVM();
 }
 
 void Camera::moveUD(GLdouble cs)
 {
-	mEye.y += cs;
-	mLook.y += cs;
+	mEye += mUpward * cs;
+	mLook += mUpward * cs;
 	setVM();
+}
+
+void Camera::pitchReal(GLdouble cs)
+{
+	mProjMat = rotate(mProjMat, glm::radians(cs), glm::dvec3(0, 1.0, 0));
+	setVM();
+}
+
+void Camera::yawReal(GLdouble cs)
+{
+	mProjMat = rotate(mProjMat, glm::radians(cs), glm::dvec3(1.0, 0, 0));
+	setVM();
+}
+
+void Camera::rollReal(GLdouble cs)
+{
+	mProjMat = rotate(mProjMat, glm::radians(cs), glm::dvec3(0, 0, 1.0));
+	setVM();
+}
+
+void Camera::update()
+{
+	glm::dmat4 m1 = mProjMat;
+	glm::dmat4 m2 = glm::rotate(glm::dmat4(1.0), glm::radians(2.0), glm::dvec3(0, 0, -1));
+
+	//m1 = glm::rotate(m1, glm::radians(4.0), glm::dvec3(0, 0, 1));
+	m1 = m1 * m2;
+	mProjMat = m1;
+}
+
+void Camera::changeProjMat()
+{
+	mProjMat = glm::translate(mProjMat, glm::dvec3(-200, 0, 0));
+}
+
+void Camera::resetProjMat() 
+{
+	mProjMat = mProjMatInitial;
 }
 
 void
@@ -141,8 +180,8 @@ Camera::setPM()
 			xRight * mScaleFact,
 			yBot * mScaleFact,
 			yTop * mScaleFact,
-			mNearVal * 300,
-			mFarVal * 300);
+			mNearVal,
+			mFarVal);
 	}
 }
 

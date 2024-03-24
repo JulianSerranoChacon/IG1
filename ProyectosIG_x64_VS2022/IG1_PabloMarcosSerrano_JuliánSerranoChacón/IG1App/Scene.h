@@ -61,6 +61,7 @@ public:
 	void update();
 
 	void setScene(int);
+	int getScene() const {return mId;};
 
 	void takePhoto();
 protected:
@@ -69,6 +70,7 @@ protected:
 	void resetGL();
 
 	std::vector<Abs_Entity*> gObjects; // Entities (graphic objects) of the scene
+	std::vector<Abs_Entity*> gObjectsTrans; // Entities (graphic objects) of the scene transparentes
 	std::vector <Texture* > gTextures; //Texturas de los objetos
 
 	int mId;
