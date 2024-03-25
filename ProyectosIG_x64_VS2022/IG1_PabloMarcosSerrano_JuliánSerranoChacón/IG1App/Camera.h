@@ -53,10 +53,14 @@ public:
 	void yawReal(GLdouble cs);
 	void rollReal(GLdouble cs);
 
+	void orbit(GLdouble incAng, GLdouble incY);
+
 	void update();
 
 	void changeProjMat();
 	void resetProjMat();
+
+	void setCenital();
 
 protected:
 	glm::dvec3 mEye = {0.0, 0.0, 500.0}; // camera's position
@@ -75,8 +79,8 @@ protected:
 	void uploadPM() const; // transfers projMat to the GPU
 
 	GLdouble xRight, xLeft, yTop, yBot;     // size of scene visible area
-	GLdouble mNearVal = 500, mFarVal = 10000; // view volume
-	GLdouble mScaleFact = 1;                // scale factor
+	GLdouble mNearVal = 1, mFarVal = 10000; // view volume
+	GLdouble mScaleFact = 0.003;                // scale factor
 	bool bOrto = true;                      // orthogonal or perspective projection
 
 	Viewport* mViewPort; // the viewport
@@ -86,6 +90,8 @@ protected:
 private:
 	glm::dmat4 m2;
 	glm::dmat4 mProjMatInitial;
+	GLdouble mAng;
+	GLdouble mRadio;
 };
 
 #endif //_H_Camera_H_

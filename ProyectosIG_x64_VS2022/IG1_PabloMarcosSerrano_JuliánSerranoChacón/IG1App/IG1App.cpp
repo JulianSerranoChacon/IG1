@@ -189,7 +189,9 @@ IG1App::key(unsigned char key, int x, int y)
 			mScene->setScene(7);
 			shouldUpdate = false;
 			mCamera->resetProjMat();
-			mCamera->set3D();
+			//mCamera->set3D();
+
+			mCamera->setCenital();
 			break;
 		case 'p':
 			mCamera->changePrj();
@@ -200,6 +202,10 @@ IG1App::key(unsigned char key, int x, int y)
 
 			if(mScene->getScene() == 0)
 				mCamera->update();
+			break;
+		case 'g':
+			if (!s_ig1app.shouldUpdate)
+				mCamera->orbit(10, 0);
 			break;
 		case 'F':
 			mScene->takePhoto();

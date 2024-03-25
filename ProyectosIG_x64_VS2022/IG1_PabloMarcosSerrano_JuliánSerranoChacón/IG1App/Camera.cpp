@@ -65,6 +65,16 @@ void Camera::rollReal(GLdouble cs)
 	setVM();
 }
 
+void Camera::orbit(GLdouble incAng, GLdouble incY)
+{
+	mAng += incAng;
+	mEye.x = mLook.x + cos(radians(mAng)) * mRadio;
+	mEye.z = mLook.z - sin(radians(mAng)) * mRadio;
+	mEye.y += incY;
+	setVM();
+
+}
+
 void Camera::update()
 {
 	glm::dmat4 m1 = mProjMat;
@@ -83,6 +93,18 @@ void Camera::changeProjMat()
 void Camera::resetProjMat() 
 {
 	mProjMat = mProjMatInitial;
+}
+
+void Camera::setCenital()
+{
+
+	mEye = dvec3(0, 500, 0);
+	mLook = dvec3(0, 0, 0);
+	mUp = dvec3(1, 0, 0);
+
+	mAng = 90;
+	mRadio = 500;
+	setVM();
 }
 
 void
@@ -105,6 +127,9 @@ Camera::set2D()
 	mEye = dvec3(0, 0, 500);
 	mLook = dvec3(0, 0, 0);
 	mUp = dvec3(0, 1, 0);
+
+	mAng = 0;
+	mRadio = 500;
 	setVM();
 }
 
@@ -114,6 +139,8 @@ Camera::set3D()
 	mEye = dvec3(500, 500, 500);
 	mLook = dvec3(0, 10, 0);
 	mUp = dvec3(0, 1, 0);
+	mAng = 45;
+	mRadio = 500;
 	setVM();
 }
 
@@ -167,10 +194,10 @@ void
 Camera::setPM()
 {
 	if (bOrto) { //  if orthogonal projection
-		mProjMat = ortho(xLeft * mScaleFact,
-		                 xRight * mScaleFact,
-		                 yBot * mScaleFact,
-		                 yTop * mScaleFact,
+		mProjMat = ortho(xLeft,
+		                 xRight,
+		                 yBot,
+		                 yTop,
 		                 mNearVal,
 		                 mFarVal);
 		// glm::ortho defines the orthogonal projection matrix
