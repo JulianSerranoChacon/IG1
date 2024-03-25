@@ -1,8 +1,7 @@
 #ifndef _H_IG1App_H_
 #define _H_IG1App_H_
-
  //#include <gl/GL.h>    // OpenGL
- //#include <gl/GLU.h>   // OpenGL Utility Library
+//#include <gl/GLU.h>   // OpenGL Utility Library
 #include <GL/glut.h>  // OpenGL Utility Toolkit
 
 #include <GL/freeglut.h> // OpenGL Utility Toolkit
@@ -44,6 +43,10 @@ protected:
 	void key(unsigned char key, int x, int y); // keypress event
 	void specialKey(int key, int x, int y);    // keypress event for special characters
 
+	void display2V();
+	void display2VS();
+	void mouse(int button, int state, int x, int y);
+
 	// static callbacks
 	static void s_display() { s_ig1app.display(); };
 	static void s_resize(int newWidth, int newHeight) { s_ig1app.resize(newWidth, newHeight); };
@@ -67,6 +70,12 @@ protected:
 	bool shouldUpdate = false;
 	const float delay = 80000;
 	float currentDelay = 0;
+
+	bool m2Vistas = false;
+	bool m2Scenes = false;
+
+	glm::dvec2 mMouseCoord;
+	int mMouseButt;
 };
 
 #endif //_H_IG1App_H_

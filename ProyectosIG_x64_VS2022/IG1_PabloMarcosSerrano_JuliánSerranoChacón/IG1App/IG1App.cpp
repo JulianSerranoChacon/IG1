@@ -99,8 +99,12 @@ IG1App::display() const
 { // double buffering
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clears the back buffer
-
-	mScene->render(*mCamera); // uploads the viewport and camera to the GPU
+	if (m2Scenes)
+		s_ig1app.display2VS();
+	else if (m2Vistas)
+		s_ig1app.display2V();
+	else
+		mScene->render(*mCamera); // uploads the viewport and camera to the GPU
 
 	glutSwapBuffers(); // swaps the front and back buffer
 }
@@ -122,7 +126,6 @@ void
 IG1App::key(unsigned char key, int x, int y)
 {
 	bool need_redisplay = true;
-
 	switch (key) {
 		case 27:                     // Escape key
 			glutLeaveMainLoop(); // stops main loop and destroy the OpenGL context
@@ -189,9 +192,7 @@ IG1App::key(unsigned char key, int x, int y)
 			mScene->setScene(7);
 			shouldUpdate = false;
 			mCamera->resetProjMat();
-			//mCamera->set3D();
-
-			mCamera->setCenital();
+			mCamera->set3D();
 			break;
 		case 'p':
 			mCamera->changePrj();
@@ -206,6 +207,13 @@ IG1App::key(unsigned char key, int x, int y)
 		case 'g':
 			if (!s_ig1app.shouldUpdate)
 				mCamera->orbit(10, 0);
+			break;
+
+		case 'k':
+			m2Vistas = !m2Vistas;
+			break;
+		case 'K':
+			m2Scenes = !m2Scenes;
 			break;
 		case 'F':
 			mScene->takePhoto();
@@ -271,6 +279,40 @@ IG1App::specialKey(int key, int x, int y)
 	if (need_redisplay)
 		glutPostRedisplay(); // marks the window as needing to be redisplayed -> calls to
 		                     // display()
+}
+
+void IG1App::display2V()
+{
+	Camera auxCam = *mCamera;
+	Viewport auxVP = *mViewPort;
+	mViewPort->setSize(mWinW / 2, mWinH);
+	auxCam.setSize(mViewPort->width(), mViewPort->height());
+	mScene->render(auxCam);
+	mViewPort->setPos(mWinW / 2, 0);
+	auxCam.setCenital();
+	mScene->render(auxCam);
+
+	*mViewPort = auxVP; // * restaurar el puerto de vista ( NOTA )
+}
+
+void IG1App::display2VS()
+{
+	mScene->setScene(5);
+	Camera auxCam = *mCamera;
+	Viewport auxVP = *mViewPort;
+	mViewPort->setSize(mWinW / 2, mWinH);
+	auxCam.setSize(mViewPort->width(), mViewPort->height());
+	mScene->render(auxCam);
+	mViewPort->setPos(mWinW / 2, 0);
+	mScene->setScene(0);
+	mScene->render(auxCam);
+
+	*mViewPort = auxVP; // * restaurar el puerto de vista ( NOTA )
+}
+
+void IG1App::mouse(int button, int state, int x, int y)
+{
+	mMouseButt = button;
 }
 
 void IG1App::update()
