@@ -41,10 +41,14 @@ IG1App::init()
 	mViewPort =
 	  new Viewport(mWinW, mWinH); // glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT)
 	mCamera = new Camera(mViewPort);
+	mCamera2 = new Camera(mViewPort);
 	mScene = new Scene;
+	mScene2 = new Scene;
 
 	mCamera->set2D();
+	mCamera2->set2D();
 	mScene->init();
+	mScene2->init();
 }
 
 void
@@ -79,6 +83,10 @@ IG1App::iniWinOpenGL()
 	glutSpecialFunc(s_specialKey);
 	glutDisplayFunc(s_display);
 
+	glutMouseFunc(s_mouse); 
+	glutMotionFunc(s_motion);
+	glutMouseWheelFunc(s_mouseWheel);
+
 	cout << glGetString(GL_VERSION) << '\n';
 	cout << glGetString(GL_VENDOR) << '\n';
 }
@@ -88,8 +96,12 @@ IG1App::free()
 { // release memory and resources
 	delete mScene;
 	mScene = nullptr;
+	delete mScene2;
+	mScene2 = nullptr;
 	delete mCamera;
 	mCamera = nullptr;
+	delete mCamera2;
+	mCamera2 = nullptr;
 	delete mViewPort;
 	mViewPort = nullptr;
 }
@@ -126,6 +138,15 @@ void
 IG1App::key(unsigned char key, int x, int y)
 {
 	bool need_redisplay = true;
+
+	Camera* cam = mCamera;
+	if (m2Scenes && mMouseCoord.x > mWinW / 2)
+		cam = mCamera2;
+	
+	Scene* s = mScene;
+	if (m2Scenes && mMouseCoord.x > mWinW / 2)
+		s = mScene2;
+
 	switch (key) {
 		case 27:                     // Escape key
 			glutLeaveMainLoop(); // stops main loop and destroy the OpenGL context
@@ -185,7 +206,7 @@ IG1App::key(unsigned char key, int x, int y)
 		case '6':
 			mScene->setScene(6);
 			shouldUpdate = false;
-			mCamera->resetProjMat();;
+			mCamera->resetProjMat();
 			mCamera->set3D();
 			break;
 		case '7':
@@ -195,14 +216,16 @@ IG1App::key(unsigned char key, int x, int y)
 			mCamera->set3D();
 			break;
 		case 'p':
-			mCamera->changePrj();
+
+			cam->changePrj();
 			break;
 		case 'u':
-			if(!s_ig1app.shouldUpdate)
-				mScene->update();
 
-			if(mScene->getScene() == 0)
-				mCamera->update();
+			if (!s_ig1app.shouldUpdate)
+				s->update();
+
+			if(s->getScene() == 0)
+				cam->update();
 			break;
 		case 'g':
 			if (!s_ig1app.shouldUpdate)
@@ -213,6 +236,13 @@ IG1App::key(unsigned char key, int x, int y)
 			m2Vistas = !m2Vistas;
 			break;
 		case 'K':
+			if (!m2Scenes) {
+				mScene->setScene(5);
+				mScene2->setScene(0);
+			}
+			else {
+				mScene2->freeScene();
+			}
 			m2Scenes = !m2Scenes;
 			break;
 		case 'F':
@@ -297,31 +327,75 @@ void IG1App::display2V()
 
 void IG1App::display2VS()
 {
-	mScene->setScene(5);
 	Camera auxCam = *mCamera;
+	Camera auxCam2 = *mCamera2;
 	Viewport auxVP = *mViewPort;
 	mViewPort->setSize(mWinW / 2, mWinH);
 	auxCam.setSize(mViewPort->width(), mViewPort->height());
 	mScene->render(auxCam);
 	mViewPort->setPos(mWinW / 2, 0);
-	mScene->setScene(0);
-	mScene->render(auxCam);
+	auxCam2.setSize(mViewPort->width(), mViewPort->height());
+	mScene2->render(auxCam2);
 
 	*mViewPort = auxVP; // * restaurar el puerto de vista ( NOTA )
 }
 
 void IG1App::mouse(int button, int state, int x, int y)
 {
-	mMouseButt = button;
+	mMouseButton = button;
+	mMouseCoord = glm::dvec2(x, y);
+}
+
+void IG1App::motion(int x, int y)
+{
+	Camera* Cam = mCamera;
+
+	if (m2Scenes && x > mWinW / 2)
+		Cam = mCamera2;
+
+	if (mMouseButton == 0) {
+		Cam->moveLR(mMouseCoord.x - x);
+		Cam->moveUD(mMouseCoord.x - x);
+	}
+	else if (mMouseButton == 2) {
+		Cam->orbit((mMouseCoord.x - x) * 0.7, mMouseCoord.y - y);
+	}
+
+
+	mMouseCoord = glm::dvec2(x, y);
+	glutPostRedisplay();
+}
+
+void IG1App::mouseWheel(int n, int d, int x, int y)
+{
+	Camera* Cam = mCamera;
+
+	if (m2Scenes && x > mWinW / 2)
+		Cam = mCamera2;
+
+	int auxmodifiers = glutGetModifiers();
+
+	if (auxmodifiers == GLUT_ACTIVE_CTRL) {
+		Cam->setScale(d * 0.01);
+	}
+	else if (auxmodifiers == 0) {
+		Cam->moveFB(d * 5 );
+	}
+
+	glutPostRedisplay();
 }
 
 void IG1App::update()
 {
+	Scene* s = s_ig1app.s_ig1app.mScene;
+	if(s_ig1app.m2Scenes && s_ig1app.mMouseCoord.x > s_ig1app.mWinW/2)
+		s = s_ig1app.s_ig1app.mScene2;
+
 	if (s_ig1app.shouldUpdate) {
 		//Como en cada procesador es distinto he comentado un delay del update para que en nuestros ordenadores no fuese demasiado rápido
 
 		if (s_ig1app.delay <= s_ig1app.currentDelay) {
-			s_ig1app.mScene->update();
+			s->update();
 			glutPostRedisplay();
 			s_ig1app.currentDelay = 0;
 		}

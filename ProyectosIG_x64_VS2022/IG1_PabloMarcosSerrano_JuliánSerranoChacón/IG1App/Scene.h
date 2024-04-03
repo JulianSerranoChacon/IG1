@@ -64,6 +64,7 @@ public:
 	int getScene() const {return mId;};
 
 	void takePhoto();
+	void freeScene() { free(); };
 protected:
 	void free();
 	void setGL();

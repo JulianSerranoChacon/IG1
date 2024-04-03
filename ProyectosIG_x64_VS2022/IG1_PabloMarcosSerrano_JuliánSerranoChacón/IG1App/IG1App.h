@@ -45,13 +45,20 @@ protected:
 
 	void display2V();
 	void display2VS();
+
 	void mouse(int button, int state, int x, int y);
+	void motion(int x, int y);
+	void mouseWheel(int n, int d, int x, int y);
 
 	// static callbacks
 	static void s_display() { s_ig1app.display(); };
 	static void s_resize(int newWidth, int newHeight) { s_ig1app.resize(newWidth, newHeight); };
 	static void s_key(unsigned char key, int x, int y) { s_ig1app.key(key, x, y); };
 	static void s_specialKey(int key, int x, int y) { s_ig1app.specialKey(key, x, y); };
+
+	static void s_mouse(int button, int state, int x, int y) { s_ig1app.mouse(button,state,x,y); };
+	static void s_motion(int x, int y) { s_ig1app.motion(x, y); }
+	static void s_mouseWheel(int n, int d, int x, int y) { s_ig1app.mouseWheel(n,d,x,y); };
 
 	static void update();
 
@@ -61,6 +68,9 @@ protected:
 	Camera* mCamera = nullptr;
 	// Graphics objects of the scene
 	Scene* mScene = nullptr;
+
+	Scene* mScene2 = nullptr;
+	Camera* mCamera2 = nullptr;
 
 	bool mStop = false; // main event processing loop
 	int mWinId = 0;     // window's identifier
@@ -75,7 +85,7 @@ protected:
 	bool m2Scenes = false;
 
 	glm::dvec2 mMouseCoord;
-	int mMouseButt;
+	int mMouseButton;
 };
 
 #endif //_H_IG1App_H_
