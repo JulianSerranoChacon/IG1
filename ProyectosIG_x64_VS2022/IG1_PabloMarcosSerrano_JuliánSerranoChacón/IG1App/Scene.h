@@ -19,6 +19,10 @@ class GlassParapet;
 class Photo;
 class Box;
 class Grass;
+class Sphere;
+class Cylinder;
+class Disk;
+class PartialDisk;
 
 class Scene
 {
@@ -42,6 +46,11 @@ private:
 	Photo* photo = nullptr;
 	Box* box = nullptr;
 	Grass* grass = nullptr;
+	Sphere* sphere = nullptr;
+	Cylinder* cylinder = nullptr;
+	Disk* disk = nullptr;
+	PartialDisk* partialDisk = nullptr;
+
 	const int r= 200;
 
 public:
@@ -65,6 +74,7 @@ public:
 
 	void takePhoto();
 	void freeScene() { free(); };
+	void sceneDirLight(Camera const& cam) const;
 protected:
 	void free();
 	void setGL();

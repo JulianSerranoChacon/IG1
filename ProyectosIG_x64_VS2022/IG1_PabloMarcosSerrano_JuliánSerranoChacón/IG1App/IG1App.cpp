@@ -215,6 +215,12 @@ IG1App::key(unsigned char key, int x, int y)
 			mCamera->resetProjMat();
 			mCamera->set3D();
 			break;
+		case '8':
+			mScene->setScene(8);
+			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->set3D();
+			break;
 		case 'p':
 
 			cam->changePrj();

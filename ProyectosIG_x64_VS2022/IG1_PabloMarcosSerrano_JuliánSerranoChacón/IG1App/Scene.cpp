@@ -15,6 +15,10 @@
 #include "Photo.h"
 #include "Box.h"
 #include "Grass.h"
+#include "Sphere.h"
+#include "Cylinder.h"
+#include "Disk.h"
+#include "PartialDisk.h"
 
 using namespace glm;
 
@@ -68,6 +72,7 @@ Scene::resetGL()
 void
 Scene::render(Camera const& cam) const
 {
+	sceneDirLight(cam);
 	cam.upload();
 
 	for (Abs_Entity* el : gObjects) {
@@ -236,6 +241,15 @@ void Scene::setScene(int id) {
 			gTextures.push_back(t6);
 			gObjects.push_back(photo);
 			break;
+
+		case 8:
+			sphere = new Sphere(200, 50, 50);
+			gObjects.push_back(sphere);
+			partialDisk = new PartialDisk(150, 170, 50, 50, 180, 360);
+			glm::dmat4 me = glm::translate(dmat4(1.0), dvec3(-100, 0, 0));
+			partialDisk->setModelMat(me);
+			gObjects.push_back(partialDisk);
+			break;
 		default:
 				break;
 	}
@@ -249,4 +263,19 @@ void Scene::takePhoto()
 	t->loadColorBuffer(glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
 	t->saveData("../bmps/Pachoclo.bmp");
 	delete t;
+}
+
+void Scene::sceneDirLight(Camera const& cam) const {
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glm::fvec4 posDir = { 1, 1, 1, 0 };
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixd(value_ptr(cam.viewMat()));
+	glLightfv(GL_LIGHT0, GL_POSITION, value_ptr(posDir));
+	glm::fvec4 ambient = { 0, 0, 0, 1 };
+	glm::fvec4 diffuse = { 1, 1, 1, 1 };
+	glm::fvec4 specular = { 0.5, 0.5, 0.5, 1 };
+	glLightfv(GL_LIGHT0, GL_AMBIENT, value_ptr(ambient));
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, value_ptr(diffuse));
+	glLightfv(GL_LIGHT0, GL_SPECULAR, value_ptr(specular));
 }
