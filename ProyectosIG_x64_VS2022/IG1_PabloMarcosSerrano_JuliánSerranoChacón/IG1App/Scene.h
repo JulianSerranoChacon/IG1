@@ -23,6 +23,8 @@ class Sphere;
 class Cylinder;
 class Disk;
 class PartialDisk;
+class WingAdvanceTIE;
+class AdvancedTIE;
 
 class Scene
 {
@@ -50,6 +52,7 @@ private:
 	Cylinder* cylinder = nullptr;
 	Disk* disk = nullptr;
 	PartialDisk* partialDisk = nullptr;
+	AdvancedTIE* tie = nullptr;
 
 	const int r= 200;
 

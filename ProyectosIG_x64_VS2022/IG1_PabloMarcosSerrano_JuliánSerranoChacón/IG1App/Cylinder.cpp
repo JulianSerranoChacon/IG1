@@ -14,11 +14,10 @@ void Cylinder::render(glm::dmat4 const& modelViewMat) const
 	glm::dmat4 aMat = modelViewMat * mModelMat;
 	upload(aMat);
 	// Aquí se puede fijar el color de la esfera así:
-	// glEnable ( GL_COLOR_MATERIAL );
-	// glColor3f (...);
+	glColor3f (getMColor().x, getMColor().y, getMColor().z);
 	// Aquí se puede fijar el modo de dibujar la esfera :
 	// gluQuadricDrawStyle (q, ...);
 	gluCylinder(q,rDown_,rUp_,h_,slices_,stacks_);
 	// Aquí se debe recuperar el color :
-	// glColor3f (1.0 , 1.0 , 1.0);
+	glColor3f (1.0 , 1.0 , 1.0);
 }

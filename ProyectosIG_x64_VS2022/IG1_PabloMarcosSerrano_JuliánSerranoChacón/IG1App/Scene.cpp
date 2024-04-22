@@ -19,6 +19,7 @@
 #include "Cylinder.h"
 #include "Disk.h"
 #include "PartialDisk.h"
+#include "AdvancedTIE.h"
 
 using namespace glm;
 
@@ -60,6 +61,7 @@ Scene::setGL()
 	glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)
 	glEnable(GL_DEPTH_TEST);          // enable Depth test
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_COLOR_MATERIAL);
 }
 void
 Scene::resetGL()
@@ -67,6 +69,7 @@ Scene::resetGL()
 	glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)
 	glDisable(GL_DEPTH_TEST);     // disable Depth test
 	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_COLOR_MATERIAL);
 }
 
 void
@@ -93,6 +96,7 @@ void Scene::update()
 
 void Scene::setScene(int id) {
 	free();
+	glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)
 	mId = id;
 	switch (id) {
 		case 0:
@@ -244,11 +248,41 @@ void Scene::setScene(int id) {
 
 		case 8:
 			sphere = new Sphere(200, 50, 50);
+			sphere->setColor(glm::dvec4(1.0, 0.4, 0.0, 1.0));
 			gObjects.push_back(sphere);
-			partialDisk = new PartialDisk(150, 170, 50, 50, 180, 360);
-			glm::dmat4 me = glm::translate(dmat4(1.0), dvec3(-100, 0, 0));
+			partialDisk = new PartialDisk(150, 170, 50, 50, 90, 180);
+			partialDisk->setColor(glm::dvec4(0.0, 1.0, 0.0, 1.0));
+			glm::dmat4 me = glm::translate(dmat4(1.0), dvec3(0, 30, 150));
 			partialDisk->setModelMat(me);
 			gObjects.push_back(partialDisk);
+			disk = new Disk(120, 170, 50, 50);
+			disk->setColor(glm::dvec4(1.0, 0.0, 0.0, 0.0));
+			me = glm::rotate(dmat4(1.0), radians(-90.0), dvec3(1.0, 0.0, 0));
+			me = glm::translate(me, dvec3(0, 0, 150));
+			disk->setModelMat(me);
+			gObjects.push_back(disk);
+			cylinder = new Cylinder(0.0, 20.0, 20.0, 50, 10);
+			cylinder->setColor(glm::dvec4(0.0, 0.0, 1.0, 0.0));
+			me = glm::rotate(dmat4(1.0), radians(-90.0), dvec3(0.0, 0.0, 1.0));
+			me = glm::translate(me, dvec3(0, 30, 200));
+			cylinder->setModelMat(me);
+			gObjects.push_back(cylinder);
+			cylinder = new Cylinder(0.0, 20.0, 20.0, 50, 10);
+			cylinder->setColor(glm::dvec4(0.5, 0.5, 1.0, 0.0));
+			me = glm::rotate(dmat4(1.0), radians(-90.0), dvec3(0.0, 0.0, 1.0));
+			me = glm::translate(me, dvec3(0, -30, 200));
+			cylinder->setModelMat(me);
+			gObjects.push_back(cylinder);
+			break;
+		case 9:
+
+			glClearColor(0.0, 0.0, 0.0, 1.0); // background color (alpha=1 -> opaque)
+			tie = new AdvancedTIE(); 
+			t2 = new Texture();
+			t2->load("../bmps/noche.bmp",100);
+			tie->setWingsTexture(t2);
+			gTextures.push_back(t2);
+			gObjectsTrans.push_back(tie);
 			break;
 		default:
 				break;

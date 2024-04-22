@@ -270,6 +270,48 @@ Mesh* Mesh::generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h)
 	return mesh;
 }
 
+Mesh* Mesh::generateWings(GLdouble w, GLdouble h)
+{//Creamos el mesh a devolver
+	Mesh* mesh = new Mesh();
+	GLdouble x = w / 2.0;
+	GLdouble y = h / 2.0;
+	GLdouble z = sqrt(3) * y;
+	//inicializamos los vertices de la malla
+	mesh->mNumVertices = 8;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back(-x, y, 0);
+	mesh->vVertices.emplace_back(x, y, 0);
+	mesh->vVertices.emplace_back(-x, y/2, z/2);
+	mesh->vVertices.emplace_back(x, y/2, z/2);
+	mesh->vVertices.emplace_back(-x, -y/2, z/2);
+	mesh->vVertices.emplace_back(x, -y/2, z/2);
+	mesh->vVertices.emplace_back(-x, -y, 0);
+	mesh->vVertices.emplace_back(x, -y, 0);
+
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+
+	return mesh;
+}
+
+Mesh* Mesh::generateWingsTexCor(GLdouble w, GLdouble h)
+{
+	//Creamos el mesh a devolver
+	Mesh* mesh = generateWings(w,h);
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 1));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 1));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 2.0 / 3.0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 2.0 / 3.0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 1.0 / 3.0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 1.0 / 3.0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0, 0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1, 0));
+
+	return mesh;
+}
+
 
 
 void
@@ -294,11 +336,17 @@ Mesh::render() const
 			glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());
 		}
 
+		if (vNormals.size() > 0) {
+			glEnableClientState(GL_NORMAL_ARRAY);
+			glNormalPointer(GL_DOUBLE, 0, vNormals.data());
+		}
+
 		draw();
 
 		glDisableClientState(GL_COLOR_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		glDisableClientState(GL_NORMAL_ARRAY);
 	}
 }
 

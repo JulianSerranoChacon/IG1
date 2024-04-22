@@ -33,6 +33,8 @@ public:
 	static Mesh* generateBoxOutlineTexCor(GLdouble longitud);
 	static Mesh* generateStar3D(GLdouble re, GLuint np, GLdouble h);
 	static Mesh* generateStar3DTexCor(GLdouble re, GLuint np, GLdouble h);
+	static Mesh* generateWings(GLdouble w, GLdouble h);
+	static Mesh* generateWingsTexCor(GLdouble w, GLdouble h);
 
 protected:
 	GLuint mPrimitive =
@@ -41,6 +43,7 @@ protected:
 	std::vector<glm::dvec3> vVertices; // vertex array
 	std::vector<glm::dvec4> vColors;   // color array
 	std::vector<glm::dvec2> vTexCoords; //vector de coordenadas de textura
+	std::vector<glm::dvec3> vNormals;//vector de normales
 	virtual void draw() const;
 };
 
