@@ -25,6 +25,7 @@ class Disk;
 class PartialDisk;
 class WingAdvanceTIE;
 class AdvancedTIE;
+class IndexedBox;
 
 class Scene
 {
@@ -53,6 +54,7 @@ private:
 	Disk* disk = nullptr;
 	PartialDisk* partialDisk = nullptr;
 	AdvancedTIE* tie = nullptr;
+	IndexedBox* indexBox = nullptr;
 
 	const int r= 200;
 

@@ -20,6 +20,7 @@
 #include "Disk.h"
 #include "PartialDisk.h"
 #include "AdvancedTIE.h"
+#include "IndexedBox.h"
 
 using namespace glm;
 
@@ -62,6 +63,7 @@ Scene::setGL()
 	glEnable(GL_DEPTH_TEST);          // enable Depth test
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_NORMALIZE);
 }
 void
 Scene::resetGL()
@@ -70,6 +72,7 @@ Scene::resetGL()
 	glDisable(GL_DEPTH_TEST);     // disable Depth test
 	glDisable(GL_TEXTURE_2D);
 	glDisable(GL_COLOR_MATERIAL);
+	glDisable(GL_NORMALIZE);
 }
 
 void
@@ -283,6 +286,11 @@ void Scene::setScene(int id) {
 			tie->setWingsTexture(t2);
 			gTextures.push_back(t2);
 			gObjectsTrans.push_back(tie);
+			break;
+		case 10:
+			indexBox = new IndexedBox(100);
+			indexBox->setMColor(glm::dvec4(0.0, 1.0, 0.0, 0.0));
+			gObjectsTrans.push_back(indexBox);
 			break;
 		default:
 				break;

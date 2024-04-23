@@ -5,7 +5,7 @@ class IndexMesh: public Mesh
 protected:
 	GLuint* vIndices = nullptr; // tabla de índices
 	GLuint nNumIndices = 0;
-	void calculoVectorNormalPorNewell(GLuint* C);
+	void calculoVectorNormalPorNewell(IndexMesh* mesh, std::vector<GLuint> C);
 
 public:
 	IndexMesh() { mPrimitive = GL_TRIANGLES; }
