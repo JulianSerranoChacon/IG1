@@ -15,7 +15,10 @@ void CompoundEntity::addEntity(Abs_Entity* ae)
 
 void CompoundEntity::render(glm::dmat4 const& modelViewMat) const
 {
+	glm::dmat4 aMat = modelViewMat * mModelMat;
+	upload(aMat);
+
 	for (Abs_Entity* e : gObjects) {
-		e->render(modelViewMat);
+		e->render(aMat);
 	}
 }

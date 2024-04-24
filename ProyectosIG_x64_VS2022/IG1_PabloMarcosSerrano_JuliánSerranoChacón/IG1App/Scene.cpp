@@ -21,6 +21,8 @@
 #include "PartialDisk.h"
 #include "AdvancedTIE.h"
 #include "IndexedBox.h"
+#include "NodeRGBTriangle.h"
+#include "Tatooine.h"
 
 using namespace glm;
 
@@ -96,6 +98,20 @@ void Scene::update()
 		el->update();
 	}
 }
+
+void Scene::orbit()
+{
+	if (tatooine != nullptr)
+		tatooine->orbit();
+}
+
+void Scene::rotate()
+{
+	if (tatooine != nullptr)
+		tatooine->rotate();
+}
+
+
 
 void Scene::setScene(int id) {
 	free();
@@ -291,6 +307,19 @@ void Scene::setScene(int id) {
 			indexBox = new IndexedBox(100);
 			indexBox->setMColor(glm::dvec4(0.0, 1.0, 0.0, 0.0));
 			gObjectsTrans.push_back(indexBox);
+			break;
+		case 11:
+			nodeTrianle = new NodeRGBTriangle(40);
+			gObjects.push_back(nodeTrianle);
+			break;
+		case 12:
+			glClearColor(0.0, 0.0, 0.0, 1.0); // background color (alpha=1 -> opaque)
+			tatooine = new Tatooine();
+			t2 = new Texture();
+			t2->load("../bmps/noche.bmp", 100);
+			tatooine->setWingsTexture(t2);
+			gTextures.push_back(t2);
+			gObjects.push_back(tatooine);
 			break;
 		default:
 				break;

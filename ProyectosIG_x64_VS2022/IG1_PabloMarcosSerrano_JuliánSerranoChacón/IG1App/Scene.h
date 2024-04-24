@@ -26,6 +26,8 @@ class PartialDisk;
 class WingAdvanceTIE;
 class AdvancedTIE;
 class IndexedBox;
+class NodeRGBTriangle;
+class Tatooine;
 
 class Scene
 {
@@ -55,6 +57,8 @@ private:
 	PartialDisk* partialDisk = nullptr;
 	AdvancedTIE* tie = nullptr;
 	IndexedBox* indexBox = nullptr;
+	NodeRGBTriangle* nodeTrianle = nullptr;
+	Tatooine* tatooine = nullptr;
 
 	const int r= 200;
 
@@ -73,6 +77,8 @@ public:
 
 	void render(Camera const& cam) const;
 	void update();
+	void orbit();
+	void rotate();
 
 	void setScene(int);
 	int getScene() const {return mId;};

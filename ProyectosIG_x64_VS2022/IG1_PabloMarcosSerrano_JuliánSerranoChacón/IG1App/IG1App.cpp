@@ -227,8 +227,20 @@ IG1App::key(unsigned char key, int x, int y)
 			mCamera->resetProjMat();
 			mCamera->set3D();
 			break;
-		case'r':
+		case'=':
 			mScene->setScene(10);
+			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->set3D();
+			break;
+		case'!':
+			mScene->setScene(11);
+			shouldUpdate = false;
+			mCamera->resetProjMat();
+			mCamera->set2D();
+			break;
+		case'"':
+			mScene->setScene(12);
 			shouldUpdate = false;
 			mCamera->resetProjMat();
 			mCamera->set3D();
@@ -246,8 +258,10 @@ IG1App::key(unsigned char key, int x, int y)
 				cam->update();
 			break;
 		case 'g':
-			if (!s_ig1app.shouldUpdate)
-				mCamera->orbit(10, 0);
+			//if (!s_ig1app.shouldUpdate)
+				//mCamera->orbit(10, 0);
+
+			s->orbit();
 			break;
 
 		case 'k':
@@ -263,6 +277,8 @@ IG1App::key(unsigned char key, int x, int y)
 			}
 			m2Scenes = !m2Scenes;
 			break;
+		case 'f':
+			s->rotate();
 		case 'F':
 			mScene->takePhoto();
 			break;

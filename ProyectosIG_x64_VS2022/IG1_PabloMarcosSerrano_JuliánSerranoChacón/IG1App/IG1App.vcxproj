@@ -86,6 +86,7 @@
     <ClInclude Include="IndexedBox.h" />
     <ClInclude Include="IndexMesh.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="NodeRGBTriangle.h" />
     <ClInclude Include="PartialDisk.h" />
     <ClInclude Include="Photo.h" />
     <ClInclude Include="Pixmap32RGBA.h" />
@@ -97,6 +98,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Star3D.h" />
+    <ClInclude Include="Tatooine.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Top.h" />
     <ClInclude Include="Viewport.h" />
@@ -120,6 +122,7 @@
     <ClCompile Include="IndexMesh.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="NodeRGBTriangle.cpp" />
     <ClCompile Include="PartialDisk.cpp" />
     <ClCompile Include="Photo.cpp" />
     <ClCompile Include="Pixmap32RGBA.cpp" />
@@ -131,6 +134,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Star3D.cpp" />
+    <ClCompile Include="Tatooine.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Top.cpp" />
     <ClCompile Include="Viewport.cpp" />

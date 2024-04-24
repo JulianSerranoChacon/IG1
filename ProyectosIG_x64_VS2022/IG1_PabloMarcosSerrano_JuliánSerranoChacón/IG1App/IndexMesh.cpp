@@ -55,7 +55,7 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 {
 	//Creamos el mesh a devolver
 	IndexMesh* mesh = new IndexMesh();
-	GLdouble m = l / 2.0;
+	GLdouble m = l * 0.5;
 	//inicializamos los vertices de la malla
 	mesh->mNumVertices = 8;
 	mesh->vVertices.reserve(mesh->mNumVertices);
@@ -69,11 +69,13 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 	mesh->vVertices.emplace_back(-m, -m, -m);//7
 
 	mesh->nNumIndices = 36;
-	mesh->vIndices = new GLuint[36]{ 0, 1, 2, 1, 3, 2, 2, 3, 4, 
-		3, 5, 4, 4, 5, 6, 5, 7, 6,
-		6, 7, 0, 7, 1, 0, 
-		0, 2, 4, 4, 6, 0,
-		1, 5, 3, 1, 7, 5
+	mesh->vIndices = new GLuint[36]{ 0, 1, 2, 1, 3, 2, 2, 3, 4,
+	//3, 5, 4, 4, 5, 6, 5, 7, 6,
+	6,7,5,6,5,4,4,5,3,
+	//1, 7, 6, 1, 6, 0,
+	6, 7, 0, 7, 1, 0,
+	//0, 6, 1, 6, 7, 1,
+	0, 2, 4, 4, 6, 0, 1, 5, 3, 5, 7, 1
 	};
 
 	//si comentas este bucle compruebas el correcto comportamiento de las normales
@@ -83,14 +85,14 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 		cara.push_back(mesh->vIndices[i]);
 		cara.push_back(mesh->vIndices[i + 1]);
 		cara.push_back(mesh->vIndices[i + 2]);
-		mesh->calculoVectorNormalPorNewell(mesh, cara);
+		mesh->buildNormalVectors(mesh, cara);
 	}
 
 	return mesh;
 }
 
 
-void IndexMesh::calculoVectorNormalPorNewell(IndexMesh* mesh, std::vector<GLuint> C)
+void IndexMesh::buildNormalVectors(IndexMesh* mesh, std::vector<GLuint> C)
 {
 	glm::dvec3 n = glm::dvec3(0, 0, 0);
 	for (int i = 0; i < C.size(); i++)
