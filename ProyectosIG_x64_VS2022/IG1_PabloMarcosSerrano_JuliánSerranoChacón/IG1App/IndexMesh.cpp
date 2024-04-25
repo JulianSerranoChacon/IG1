@@ -69,13 +69,13 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 	mesh->vVertices.emplace_back(-m, -m, -m);//7
 
 	mesh->nNumIndices = 36;
-	mesh->vIndices = new GLuint[36]{ 0, 1, 2, 1, 3, 2, 2, 3, 4,
-	//3, 5, 4, 4, 5, 6, 5, 7, 6,
-	6,7,5,6,5,4,4,5,3,
-	//1, 7, 6, 1, 6, 0,
-	6, 7, 0, 7, 1, 0,
-	//0, 6, 1, 6, 7, 1,
-	0, 2, 4, 4, 6, 0, 1, 5, 3, 5, 7, 1
+	mesh->vIndices = new GLuint[36]{
+		2, 0, 4, 6, 4, 0,
+		0, 3, 2, 1, 3, 0,
+		2, 4, 3, 4, 5, 3,
+		0, 7, 1, 0, 6, 7,
+		5, 7, 1, 5, 1, 3,
+		5, 7, 6, 6, 4, 5
 	};
 
 	//si comentas este bucle compruebas el correcto comportamiento de las normales
