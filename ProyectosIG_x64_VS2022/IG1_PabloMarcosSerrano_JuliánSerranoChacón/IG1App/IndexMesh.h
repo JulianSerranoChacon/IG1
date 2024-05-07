@@ -8,7 +8,7 @@ protected:
 	void buildNormalVectors(IndexMesh* mesh, std::vector<GLuint> C);
 
 public:
-	IndexMesh() { mPrimitive = GL_TRIANGLES; }
+	IndexMesh():Mesh() { mPrimitive = GL_TRIANGLES; }
 	~IndexMesh() { delete[] vIndices; }
 	virtual void render() const;
 	virtual void draw() const;

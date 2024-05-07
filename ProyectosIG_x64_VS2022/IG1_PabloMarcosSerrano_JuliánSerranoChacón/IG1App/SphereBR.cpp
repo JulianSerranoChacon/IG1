@@ -7,9 +7,9 @@ SphereBR::SphereBR(GLuint r, GLuint p, GLuint m)
 	GLdouble alpha = 90;
 	//
 	glm::dvec3* perfil = new glm::dvec3[p + 1];
-	GLdouble aux = 180.0 / p - 1;
+	GLdouble aux = 180.0/ (p - 1);
 	//creaos polígono
-	for (int i = 0; i < perfil->length(); i++) {
+	for (int i = 0; i < p; i++) {
 		perfil[i] = glm::dvec3(r * cos(glm::radians(alpha)), r * sin(glm::radians(alpha)), 0);
 		alpha += aux;
 	}

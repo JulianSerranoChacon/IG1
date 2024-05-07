@@ -323,7 +323,7 @@ void Scene::setScene(int id) {
 			gObjects.push_back(tatooine);
 			break;
 		case 13:
-			spherebr = new SphereBR(100,4,5);
+			spherebr = new SphereBR(200,10,20);
 			gObjects.push_back(spherebr);
 		case 14:
 

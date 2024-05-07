@@ -1,4 +1,6 @@
 #include "IndexMesh.h"
+#include <iostream>
+
 
 void IndexMesh::render() const {
 
@@ -94,14 +96,25 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 
 void IndexMesh::buildNormalVectors(IndexMesh* mesh, std::vector<GLuint> C)
 {
-	glm::dvec3 n = glm::dvec3(0, 0, 0);
-	for (int i = 0; i < C.size(); i++)
+	glm::dvec3 n = glm::dvec3(0.0, 0.0, 0.0);
+	int numVertices = C.size();
+
+	// Calcular la normal de la cara usando el método de Newell
+	for (int i = 0; i < numVertices; i++)
 	{
 		glm::dvec3 vertActual = mesh->vVertices[C[i]];
-		glm::dvec3 vertSiguiente = mesh->vVertices[C[(i + 1) % C.size()]];
+		glm::dvec3 vertSiguiente = mesh->vVertices[C[(i + 1) % numVertices]];
 		n.x += (vertActual.y - vertSiguiente.y) * (vertActual.z + vertSiguiente.z);
 		n.y += (vertActual.z - vertSiguiente.z) * (vertActual.x + vertSiguiente.x);
 		n.z += (vertActual.x - vertSiguiente.x) * (vertActual.y + vertSiguiente.y);
 	}
-	mesh->vNormals.push_back(glm::normalize(n));
+
+	// Normalizar la normal calculada
+	n = glm::normalize(n);
+	// Asignar la normal a cada vértice de la cara
+	for (int i = 0; i < numVertices; i++)
+	{
+		mesh->vNormals.push_back(n);
+		std::cout << " normal" << n.x << " " << n.y << " " << n.z << std::endl;
+	}
 }
