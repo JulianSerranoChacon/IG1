@@ -1,6 +1,7 @@
 #pragma once
 
 #include "QuadricEntity.h"
+#include "EntityWithMaterial.h"
 
 class Sphere: public QuadricEntity
 {

@@ -7,6 +7,7 @@ Sphere::~Sphere()
 }
 
 void Sphere::render(glm::dmat4 const& modelViewMat) const {
+
 	glm::dmat4 aMat = modelViewMat * mModelMat;
 	upload(aMat);
 	// Aquí se puede fijar el color de la esfera así:

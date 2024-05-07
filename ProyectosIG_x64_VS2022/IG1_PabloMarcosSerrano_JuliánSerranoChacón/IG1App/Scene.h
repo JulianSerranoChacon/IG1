@@ -28,6 +28,7 @@ class AdvancedTIE;
 class IndexedBox;
 class NodeRGBTriangle;
 class Tatooine;
+class SphereBR;
 
 class Scene
 {
@@ -59,6 +60,7 @@ private:
 	IndexedBox* indexBox = nullptr;
 	NodeRGBTriangle* nodeTrianle = nullptr;
 	Tatooine* tatooine = nullptr;
+	SphereBR* spherebr = nullptr;
 
 	const int r= 200;
 

@@ -25,9 +25,11 @@ Mesh* Mesh::generateRegularPolygon(GLuint num, GLdouble r)
 	mesh->vVertices.reserve(mesh->mNumVertices);
 
 	//creaos polígono
+
+	GLdouble aux = 360.0 / num;
 	for (int i = 0; i < mesh->mNumVertices; i++) {
 		mesh->vVertices.emplace_back(r * cos(radians(alpha)), r * sin(radians(alpha)), 0);
-		alpha += 360.0/ num;
+		alpha += aux;
 	}
 	//guardamos primitiva
 	mesh->mPrimitive = GL_LINE_LOOP;

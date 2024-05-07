@@ -23,6 +23,7 @@
 #include "IndexedBox.h"
 #include "NodeRGBTriangle.h"
 #include "Tatooine.h"
+#include "SphereBR.h"
 
 using namespace glm;
 
@@ -320,6 +321,16 @@ void Scene::setScene(int id) {
 			tatooine->setWingsTexture(t2);
 			gTextures.push_back(t2);
 			gObjects.push_back(tatooine);
+			break;
+		case 13:
+			spherebr = new SphereBR(100,4,5);
+			gObjects.push_back(spherebr);
+		case 14:
+
+			break;
+		case 15:
+			break;
+		case 16:
 			break;
 		default:
 				break;

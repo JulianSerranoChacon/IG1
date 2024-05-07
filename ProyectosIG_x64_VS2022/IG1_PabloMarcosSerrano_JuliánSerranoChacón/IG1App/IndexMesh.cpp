@@ -46,7 +46,7 @@ void IndexMesh::render() const {
 
 // Comando para renderizar la malla indexada enviada
 void IndexMesh::draw() const {
-	glDrawElements(mPrimitive, nNumIndices,
+	glDrawElements(mPrimitive, mNumIndices,
 		GL_UNSIGNED_INT, vIndices);
 
 }
@@ -68,7 +68,7 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 	mesh->vVertices.emplace_back(-m, m, -m);//6
 	mesh->vVertices.emplace_back(-m, -m, -m);//7
 
-	mesh->nNumIndices = 36;
+	mesh->mNumIndices = 36;
 	mesh->vIndices = new GLuint[36]{
 		2, 0, 4, 6, 4, 0,
 		0, 3, 2, 1, 3, 0,
@@ -80,7 +80,7 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 
 	//si comentas este bucle compruebas el correcto comportamiento de las normales
 
-	for (int i = 0; i < mesh->nNumIndices; i = i + 3) {
+	for (int i = 0; i < mesh->mNumIndices; i = i + 3) {
 		std::vector<GLuint> cara;
 		cara.push_back(mesh->vIndices[i]);
 		cara.push_back(mesh->vIndices[i + 1]);
