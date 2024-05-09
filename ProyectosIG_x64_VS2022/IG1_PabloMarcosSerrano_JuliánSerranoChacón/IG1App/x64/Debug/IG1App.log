@@ -1,4 +1,5 @@
 ﻿  IndexMesh.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(85,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(100,18): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(87,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(90,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(120,18): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
   IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\bin\IG1AppDebug.exe

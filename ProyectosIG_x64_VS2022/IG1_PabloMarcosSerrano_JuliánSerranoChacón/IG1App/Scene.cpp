@@ -323,7 +323,8 @@ void Scene::setScene(int id) {
 			gObjects.push_back(tatooine);
 			break;
 		case 13:
-			spherebr = new SphereBR(200,10,20);
+			spherebr = new SphereBR(200,60,60);
+			spherebr->setMColor(glm::dvec4(0, 0, 1,1));
 			gObjects.push_back(spherebr);
 		case 14:
 

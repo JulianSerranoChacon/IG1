@@ -1,4 +1,4 @@
-#include "IndexMesh.h"
+ï»¿#include "IndexMesh.h"
 #include <iostream>
 
 
@@ -28,7 +28,7 @@ void IndexMesh::render() const {
 			glNormalPointer(GL_DOUBLE, 0, vNormals.data());
 		}
 
-		// Nuevos comandos para la tabla de índices
+		// Nuevos comandos para la tabla de Ã­ndices
 		if (vIndices != nullptr) {
 			glEnableClientState(GL_INDEX_ARRAY);
 			glIndexPointer(GL_UNSIGNED_INT, 0, vIndices);
@@ -41,7 +41,7 @@ void IndexMesh::render() const {
 		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 		glDisableClientState(GL_NORMAL_ARRAY);
 
-		// Nuevo comando para la tabla de índices :
+		// Nuevo comando para la tabla de Ã­ndices :
 		glDisableClientState(GL_INDEX_ARRAY);
 	}
 }
@@ -82,12 +82,20 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 
 	//si comentas este bucle compruebas el correcto comportamiento de las normales
 
-	for (int i = 0; i < mesh->mNumIndices; i = i + 3) {
-		std::vector<GLuint> cara;
-		cara.push_back(mesh->vIndices[i]);
-		cara.push_back(mesh->vIndices[i + 1]);
-		cara.push_back(mesh->vIndices[i + 2]);
-		mesh->buildNormalVectors(mesh, cara);
+		//construimos las normales
+	mesh->vNormals.reserve(mesh->mNumIndices);
+	for (int i = 0; i < mesh->mNumVertices; i++)
+		mesh->vNormals.emplace_back(0.0, 0.0, 0.0);
+
+	for (int i = 0; i < mesh->mNumIndices; i += 3) {    // Obtener los Ã­ndices del triÃ¡ngulo actual
+		std::vector<GLuint> triangleIndices = {
+			mesh->vIndices[i + 2],
+			mesh->vIndices[i + 1],
+			mesh->vIndices[i]
+		};
+
+		// Construir la normal de la cara del triÃ¡ngulo actual
+		mesh->buildNormalVectors(mesh, triangleIndices);
 	}
 
 	return mesh;
@@ -96,10 +104,22 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 
 void IndexMesh::buildNormalVectors(IndexMesh* mesh, std::vector<GLuint> C)
 {
+	//int numVertices = C.size();
+
+	//glm::dvec3 vertActual = mesh->vVertices[C[0]];
+	//glm::dvec3 vertSiguiente = mesh->vVertices[C[1]];
+	//glm::dvec3 vertSiguiente2 = mesh->vVertices[C[2]];
+	//glm::dvec3 v1 = vertActual - vertSiguiente;
+	//glm::dvec3 v2 = vertSiguiente2 - vertSiguiente;
+	//glm::dvec3 normal = glm::normalize(glm::cross(v1, v2));
+	//mesh->vNormals[C[0]] = normal;
+
+
+
 	glm::dvec3 n = glm::dvec3(0.0, 0.0, 0.0);
 	int numVertices = C.size();
 
-	// Calcular la normal de la cara usando el método de Newell
+	// Calcular la normal de la cara usando el mï¿½todo de Newell
 	for (int i = 0; i < numVertices; i++)
 	{
 		glm::dvec3 vertActual = mesh->vVertices[C[i]];
@@ -111,10 +131,5 @@ void IndexMesh::buildNormalVectors(IndexMesh* mesh, std::vector<GLuint> C)
 
 	// Normalizar la normal calculada
 	n = glm::normalize(n);
-	// Asignar la normal a cada vértice de la cara
-	for (int i = 0; i < numVertices; i++)
-	{
-		mesh->vNormals.push_back(n);
-		std::cout << " normal" << n.x << " " << n.y << " " << n.z << std::endl;
-	}
+	mesh->vNormals[C[0]] = n;
 }
