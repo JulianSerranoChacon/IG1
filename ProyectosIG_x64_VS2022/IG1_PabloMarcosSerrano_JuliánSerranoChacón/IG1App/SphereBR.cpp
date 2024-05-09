@@ -4,7 +4,7 @@
 SphereBR::SphereBR(GLuint r, GLuint p, GLuint m)
 {
 	//Desde dónde queremos emprezar (ángulo)
-	GLdouble alpha = 90;
+	GLdouble alpha = 270;
 	//
 	glm::dvec3* perfil = new glm::dvec3[p + 1];
 	GLdouble aux = 180.0/ (p - 1);

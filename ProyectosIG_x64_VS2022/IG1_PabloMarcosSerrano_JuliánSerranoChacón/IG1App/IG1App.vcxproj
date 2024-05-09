@@ -105,6 +105,7 @@
     <ClInclude Include="Tatooine.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Top.h" />
+    <ClInclude Include="Toroid.h" />
     <ClInclude Include="Viewport.h" />
     <ClInclude Include="WingAdvanceTIE.h" />
   </ItemGroup>
@@ -145,6 +146,7 @@
     <ClCompile Include="Tatooine.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Top.cpp" />
+    <ClCompile Include="Toroid.cpp" />
     <ClCompile Include="Viewport.cpp" />
     <ClCompile Include="WingAdvanceTIE.cpp" />
   </ItemGroup>

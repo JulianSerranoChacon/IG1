@@ -24,6 +24,7 @@
 #include "NodeRGBTriangle.h"
 #include "Tatooine.h"
 #include "SphereBR.h"
+#include "Toroid.h"
 
 using namespace glm;
 
@@ -327,7 +328,9 @@ void Scene::setScene(int id) {
 			spherebr->setMColor(glm::dvec4(0, 0, 1,1));
 			gObjects.push_back(spherebr);
 		case 14:
-
+			toroid = new Toroid(100, 200, 60, 60);
+			toroid->setMColor(glm::dvec4(0, 1, 0, 1));
+			gObjects.push_back(toroid);
 			break;
 		case 15:
 			break;

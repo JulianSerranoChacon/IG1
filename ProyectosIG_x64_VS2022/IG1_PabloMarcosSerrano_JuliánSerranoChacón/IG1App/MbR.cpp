@@ -74,9 +74,9 @@ MbR* MbR::generaIndexMbR(int mm, int nn, glm::dvec3* perfil)
 	//construimos las normales
 	for (int i = 0; i < mesh->mNumIndices; i += 3) {    // Obtener los índices del triángulo actual
 		std::vector<GLuint> triangleIndices = {
-			mesh->vIndices[i + 2],
+			mesh->vIndices[i],
 			mesh->vIndices[i + 1],
-			mesh->vIndices[i]
+			mesh->vIndices[i + 2]
 		};
 
 		// Construir la normal de la cara del triángulo actual

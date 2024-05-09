@@ -1,5 +1,18 @@
-﻿  IndexMesh.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(87,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(90,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\IndexMesh.cpp(120,18): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+﻿  SphereBR.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(12,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,53): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
+          with
+          [
+              T=glm::f64
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,38): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
+          with
+          [
+              T=glm::f64
+          ]
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,23): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
+          with
+          [
+              T=glm::f64
+          ]
   IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\bin\IG1AppDebug.exe
