@@ -327,6 +327,7 @@ void Scene::setScene(int id) {
 			spherebr = new SphereBR(200,60,60);
 			spherebr->setMColor(glm::dvec4(0, 0, 1,1));
 			gObjects.push_back(spherebr);
+			break;
 		case 14:
 			toroid = new Toroid(100, 200, 60, 60);
 			toroid->setMColor(glm::dvec4(0, 1, 0, 1));

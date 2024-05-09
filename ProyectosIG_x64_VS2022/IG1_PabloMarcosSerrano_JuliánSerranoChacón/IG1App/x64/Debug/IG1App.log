@@ -1,18 +1,10 @@
-﻿  SphereBR.cpp
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(12,20): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,53): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-          with
-          [
-              T=glm::f64
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,38): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-          with
-          [
-              T=glm::f64
-          ]
-C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\SphereBR.cpp(28,23): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-          with
-          [
-              T=glm::f64
-          ]
+﻿  Scene.cpp
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(66,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(66,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(66,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(120,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(120,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(120,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(156,55): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
+C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(257,56): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
   IG1App.vcxproj -> C:\Users\Usuario\Documents\Proyectos de Git Hub\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\bin\IG1AppDebug.exe
