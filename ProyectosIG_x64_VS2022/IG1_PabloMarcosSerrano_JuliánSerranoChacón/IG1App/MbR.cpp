@@ -21,7 +21,7 @@ MbR* MbR::generaIndexMbR(int mm, int nn, glm::dvec3* perfil)
 	int indiceMenor = 0;
 	for (int i = 0; i < nn; i++) {
 		// Generar la muestra i- ésima de vértices
-		GLdouble theta = i * 360 / nn;
+		GLdouble theta = i * 360.0 / nn;
 		GLdouble c = cos(glm::radians(theta));
 		GLdouble s = sin(glm::radians(theta));
 		for (int j = 0; j < mm; j++) {
@@ -85,6 +85,8 @@ MbR* MbR::generaIndexMbR(int mm, int nn, glm::dvec3* perfil)
 
 	//mesh->vColors.reserve(mesh->mNumVertices);
 
+	
+	//DEBUG: DIBUJAR NORMALES :D
 	//for (int i = 0; i < mesh->mNumVertices; i++)
 	//mesh->vColors.emplace_back(mesh->vNormals[i].x, mesh->vNormals[i].y, mesh->vNormals[i].z,1);
 

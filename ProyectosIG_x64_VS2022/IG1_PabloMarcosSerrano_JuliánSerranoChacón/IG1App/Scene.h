@@ -30,6 +30,7 @@ class NodeRGBTriangle;
 class Tatooine;
 class SphereBR;
 class Toroid;
+class Material;
 
 class Scene
 {
@@ -63,6 +64,7 @@ private:
 	Tatooine* tatooine = nullptr;
 	SphereBR* spherebr = nullptr;
 	Toroid* toroid = nullptr;
+	Material* material = nullptr;
 
 	const int r= 200;
 

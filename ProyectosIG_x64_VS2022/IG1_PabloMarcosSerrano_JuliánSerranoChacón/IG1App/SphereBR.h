@@ -1,6 +1,7 @@
 #pragma once
-#include "Entity.h"
-class SphereBR: public Abs_Entity
+#include "EntityWithMaterial.h"
+
+class SphereBR: public EntityWithMaterial
 {
 public:
 	SphereBR(GLuint r, GLuint p, GLuint m);

@@ -25,6 +25,7 @@
 #include "Tatooine.h"
 #include "SphereBR.h"
 #include "Toroid.h"
+#include "Material.h"
 
 using namespace glm;
 
@@ -334,6 +335,17 @@ void Scene::setScene(int id) {
 			gObjects.push_back(toroid);
 			break;
 		case 15:
+			spherebr = new SphereBR(100, 60, 60);
+			spherebr->setMColor(glm::dvec4(1, 0.9, 0, 1));
+			material = new Material();
+			material->setGold();
+			spherebr->setMaterial(material);
+			spherebr->setModelMat(glm::translate(spherebr->modelMat(), glm::dvec3(200, 0, 0)));
+			gObjects.push_back(spherebr);
+			spherebr = new SphereBR(100, 60, 60);
+			spherebr->setMColor(glm::dvec4(1, 0.9, 0, 1));
+			spherebr->setModelMat(glm::translate(spherebr->modelMat(), glm::dvec3(0, 0, 200)));
+			gObjects.push_back(spherebr);
 			break;
 		case 16:
 			break;
