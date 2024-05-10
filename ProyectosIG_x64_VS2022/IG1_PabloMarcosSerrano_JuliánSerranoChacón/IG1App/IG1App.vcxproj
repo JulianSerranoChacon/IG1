@@ -95,6 +95,7 @@
     <ClInclude Include="PartialDisk.h" />
     <ClInclude Include="Photo.h" />
     <ClInclude Include="Pixmap32RGBA.h" />
+    <ClInclude Include="PosLight.h" />
     <ClInclude Include="QuadricEntity.h" />
     <ClInclude Include="RegularPolygon.h" />
     <ClInclude Include="RGBCube.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="SphereBR.h" />
+    <ClInclude Include="SpotLight.h" />
     <ClInclude Include="Star3D.h" />
     <ClInclude Include="Tatooine.h" />
     <ClInclude Include="Texture.h" />
@@ -138,6 +140,7 @@
     <ClCompile Include="PartialDisk.cpp" />
     <ClCompile Include="Photo.cpp" />
     <ClCompile Include="Pixmap32RGBA.cpp" />
+    <ClCompile Include="PosLight.cpp" />
     <ClCompile Include="QuadricEntity.cpp" />
     <ClCompile Include="RegularPolygon.cpp" />
     <ClCompile Include="RGBCube.cpp" />
@@ -146,6 +149,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="SphereBR.cpp" />
+    <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="Star3D.cpp" />
     <ClCompile Include="Tatooine.cpp" />
     <ClCompile Include="Texture.cpp" />
