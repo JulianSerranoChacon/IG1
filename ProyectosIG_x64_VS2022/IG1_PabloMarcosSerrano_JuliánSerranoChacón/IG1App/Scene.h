@@ -31,6 +31,7 @@ class Tatooine;
 class SphereBR;
 class Toroid;
 class Material;
+class DirLight;
 
 class Scene
 {
@@ -65,6 +66,7 @@ private:
 	SphereBR* spherebr = nullptr;
 	Toroid* toroid = nullptr;
 	Material* material = nullptr;
+	DirLight* dirLight = nullptr;
 
 	const int r= 200;
 
