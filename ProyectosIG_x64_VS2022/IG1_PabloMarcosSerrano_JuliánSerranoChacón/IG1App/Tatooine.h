@@ -12,6 +12,8 @@ public:
 	void rotate();
 	void orbit();
 	void setWingsTexture(Texture* t);
+	void turnOffTieLantern();
+	void turnOnTieLantern();
 protected:
 	CompoundEntity* inventedNode;
 	AdvancedTIE* tie;

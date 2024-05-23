@@ -330,7 +330,13 @@ IG1App::key(unsigned char key, int x, int y)
 		case 'x':
 			mScene->turnOffSpotLight();
 			break;
+		case 'v':
+			mScene->turnOnSpotLightTie();
+			break;
 		default:
+		case 'b':
+			mScene->turnOffSpotLightTie();
+			break;
 			need_redisplay = false;
 			break;
 	} // switch

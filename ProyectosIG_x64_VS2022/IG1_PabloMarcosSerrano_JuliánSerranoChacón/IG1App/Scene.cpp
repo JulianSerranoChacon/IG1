@@ -50,6 +50,9 @@ void
 Scene::free()
 { // release memory and resources
 
+	if(tatooine != nullptr)
+		tatooine = nullptr;
+
 	for (Abs_Entity* el : gObjectsTrans) {
 		delete el;
 		el = nullptr;
@@ -424,6 +427,18 @@ void Scene::turnOffSpotLight()
 void Scene::turnOnSpotLight()
 {
 	spotLight->enable();
+}
+
+void Scene::turnOffSpotLightTie()
+{
+	if (tatooine != nullptr)
+		tatooine->turnOffTieLantern();
+}
+
+void Scene::turnOnSpotLightTie()
+{
+	if (tatooine != nullptr)
+		tatooine->turnOnTieLantern();
 }
 
 void Scene::freeLights()

@@ -34,3 +34,13 @@ void Tatooine::setWingsTexture(Texture* t)
 	tie->setWingsTexture(t);
 	tie->setWingsTexture(t);
 }
+
+void Tatooine::turnOffTieLantern()
+{
+	tie->turnOffLantern();
+}
+
+void Tatooine::turnOnTieLantern()
+{
+	tie->turnOnLantern();
+}

@@ -108,6 +108,11 @@ public:
 	void turnOffSpotLight();
 	void turnOnSpotLight();
 
+
+	void turnOffSpotLightTie();
+	void turnOnSpotLightTie();
+
+
 	void freeLights();
 protected:
 	void free();
