@@ -38,10 +38,10 @@ void SphereBR::render(glm::dmat4 const& modelViewMat) const
 		//glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
 		// cara es GL_FRONT , GL_BACK o ambas ,
 		// y componenteDeLaLuz es GL_AMBIENT , GL_DIFFUSE , GL_SPECULAR , ...
-		glColor3f(getMColor().x, getMColor().y, getMColor().z);
+		//glColor3f(getMColor().x, getMColor().y, getMColor().z);
 		material_->upload();
 		mMesh->render();
-		glColor3f(1.0, 1.0, 1.0);
+		//glColor3f(1.0, 1.0, 1.0);
 		glEnable(GL_COLOR_MATERIAL);
 
 	}

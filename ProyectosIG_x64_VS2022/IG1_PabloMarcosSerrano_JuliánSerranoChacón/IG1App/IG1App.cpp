@@ -312,6 +312,24 @@ IG1App::key(unsigned char key, int x, int y)
 			else
 				shouldUpdate = false;
 			break;
+		case 'q':
+			mScene->turnOnDirLight();
+			break;
+		case 'w':
+			mScene->turnOffDirLight();
+			break;
+		case 'a':
+			mScene->turnOnPosLight();
+			break;
+		case 's':
+			mScene->turnOffPosLight();
+			break;
+		case 'z':
+			mScene->turnOnSpotLight();
+			break;
+		case 'x':
+			mScene->turnOffSpotLight();
+			break;
 		default:
 			need_redisplay = false;
 			break;

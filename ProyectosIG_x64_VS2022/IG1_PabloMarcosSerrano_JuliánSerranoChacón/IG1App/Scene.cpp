@@ -26,6 +26,9 @@
 #include "SphereBR.h"
 #include "Toroid.h"
 #include "Material.h"
+#include "DirLight.h"
+#include "PosLight.h"
+#include "SpotLight.h"
 
 using namespace glm;
 
@@ -36,6 +39,11 @@ Scene::init()
 
 	// allocate memory and load resources
 	// Lights
+	dirLight = new DirLight();
+	posLight = new PosLight();
+	posLight->setDif(glm::fvec4(1.0, 1.0, 0.0,1.0));
+	spotLight = new SpotLight(glm::fvec3(0, 200, 200));
+	//posLight->setPosDir(glm::fvec3(100, 100, 0));
 	// Textures
 }
 void
@@ -83,8 +91,9 @@ Scene::resetGL()
 void
 Scene::render(Camera const& cam) const
 {
-	sceneDirLight(cam);
+	//sceneDirLight(cam);
 	cam.upload();
+	setLights(cam.viewMat());
 
 	for (Abs_Entity* el : gObjects) {
 		el->render(cam.viewMat());
@@ -377,4 +386,55 @@ void Scene::sceneDirLight(Camera const& cam) const {
 	glLightfv(GL_LIGHT0, GL_AMBIENT, value_ptr(ambient));
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, value_ptr(diffuse));
 	glLightfv(GL_LIGHT0, GL_SPECULAR, value_ptr(specular));
+}
+
+void Scene::setLights(glm::dmat4 const& modelViewMat) const
+{
+	glEnable(GL_LIGHTING);
+	dirLight->upload(modelViewMat);
+	posLight->upload(modelViewMat);
+	spotLight->upload(modelViewMat);
+}
+
+void Scene::turnOffDirLight()
+{
+	dirLight->disable();
+}
+
+void Scene::turnOnDirLight()
+{
+	dirLight->enable();
+}
+
+void Scene::turnOffPosLight()
+{
+	posLight->disable();
+}
+
+void Scene::turnOnPosLight()
+{
+	posLight->enable();
+}
+
+void Scene::turnOffSpotLight()
+{
+	spotLight->disable();
+}
+
+void Scene::turnOnSpotLight()
+{
+	spotLight->enable();
+}
+
+void Scene::freeLights()
+{
+	if (dirLight != nullptr)
+		delete dirLight;
+	dirLight = nullptr;
+	if (posLight != nullptr)
+		delete posLight;
+	posLight = nullptr;
+	if (spotLight != nullptr)
+		delete spotLight;
+	spotLight = nullptr;
 }

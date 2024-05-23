@@ -5,7 +5,7 @@ void DirLight::upload(glm::dmat4 const& modelViewMat) const
 	glMatrixMode(GL_MODELVIEW);
 	glLoadMatrixd(value_ptr(modelViewMat));
 	glLightfv(id, GL_POSITION, value_ptr(posDir));
-	//uploadL();
+	uploadL();
 }
 
 void DirLight::setPosDir(glm::fvec3 dir)

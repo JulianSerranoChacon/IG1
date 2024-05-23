@@ -32,6 +32,8 @@ class SphereBR;
 class Toroid;
 class Material;
 class DirLight;
+class PosLight;
+class SpotLight;
 
 class Scene
 {
@@ -67,6 +69,8 @@ private:
 	Toroid* toroid = nullptr;
 	Material* material = nullptr;
 	DirLight* dirLight = nullptr;
+	PosLight* posLight = nullptr;
+	SpotLight* spotLight = nullptr;
 
 	const int r= 200;
 
@@ -75,6 +79,7 @@ public:
 	~Scene()
 	{
 		free();
+		freeLights();
 		resetGL();
 	};
 
@@ -94,6 +99,16 @@ public:
 	void takePhoto();
 	void freeScene() { free(); };
 	void sceneDirLight(Camera const& cam) const;
+
+	void setLights(glm::dmat4 const& modelViewMat) const;
+	void turnOffDirLight();
+	void turnOnDirLight();
+	void turnOffPosLight();
+	void turnOnPosLight();
+	void turnOffSpotLight();
+	void turnOnSpotLight();
+
+	void freeLights();
 protected:
 	void free();
 	void setGL();
