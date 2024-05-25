@@ -303,6 +303,7 @@ IG1App::key(unsigned char key, int x, int y)
 			break;
 		case 'f':
 			s->rotate();
+			break;
 		case 'F':
 			mScene->takePhoto();
 			break;
@@ -332,11 +333,11 @@ IG1App::key(unsigned char key, int x, int y)
 			break;
 		case 'v':
 			mScene->turnOnSpotLightTie();
-			break;
-		default:
+			break; 
 		case 'b':
 			mScene->turnOffSpotLightTie();
 			break;
+		default:
 			need_redisplay = false;
 			break;
 	} // switch
@@ -435,11 +436,11 @@ void IG1App::motion(int x, int y)
 	if (m2Scenes && x > mWinW / 2)
 		Cam = mCamera2;
 
-	if (mMouseButton == 0) {
+	if (mMouseButton == GLUT_RIGHT_BUTTON) {
 		Cam->moveLR(mMouseCoord.x - x);
 		Cam->moveUD(mMouseCoord.x - x);
 	}
-	else if (mMouseButton == 2) {
+	else if (mMouseButton == GLUT_LEFT_BUTTON) {
 		Cam->orbit((mMouseCoord.x - x) * 0.7, mMouseCoord.y - y);
 	}
 

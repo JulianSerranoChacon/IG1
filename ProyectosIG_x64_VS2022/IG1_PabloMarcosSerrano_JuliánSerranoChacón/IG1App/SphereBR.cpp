@@ -30,6 +30,7 @@ void SphereBR::render(glm::dmat4 const& modelViewMat) const
 
 	if (material_ == nullptr) {
 		glColor3f(getMColor().x, getMColor().y, getMColor().z);
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		mMesh->render();
 		glColor3f(1.0, 1.0, 1.0);
 	}

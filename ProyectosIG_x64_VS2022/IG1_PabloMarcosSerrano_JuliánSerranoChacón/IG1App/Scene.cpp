@@ -29,7 +29,7 @@
 #include "DirLight.h"
 #include "PosLight.h"
 #include "SpotLight.h"
-
+#include <glm/gtc/type_ptr.hpp>
 using namespace glm;
 
 void
@@ -321,7 +321,7 @@ void Scene::setScene(int id) {
 		case 10:
 			indexBox = new IndexedBox(100);
 			indexBox->setMColor(glm::dvec4(0.0, 1.0, 0.0, 0.0));
-			gObjectsTrans.push_back(indexBox);
+			gObjects.push_back(indexBox);
 			break;
 		case 11:
 			nodeTrianle = new NodeRGBTriangle(40);

@@ -32,7 +32,6 @@ MbR* MbR::generaIndexMbR(int mm, int nn, glm::dvec3* perfil)
 		}
 	}
 
-	//construimos las normales
 	for (int i = 0; i < mesh->mNumVertices; i++) {
 		mesh->vVertices.emplace_back(vs[i]);
 	}
@@ -87,8 +86,8 @@ MbR* MbR::generaIndexMbR(int mm, int nn, glm::dvec3* perfil)
 
 	
 	//DEBUG: DIBUJAR NORMALES :D
-	//for (int i = 0; i < mesh->mNumVertices; i++)
-	//mesh->vColors.emplace_back(mesh->vNormals[i].x, mesh->vNormals[i].y, mesh->vNormals[i].z,1);
+	/*for (int i = 0; i < mesh->mNumVertices; i++)
+	mesh->vColors.emplace_back(mesh->vNormals[i].x, mesh->vNormals[i].y, mesh->vNormals[i].z,1);*/
 
 	delete[] vs;
 

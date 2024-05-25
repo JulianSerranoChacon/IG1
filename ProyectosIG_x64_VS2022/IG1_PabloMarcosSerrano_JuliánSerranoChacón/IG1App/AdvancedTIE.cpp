@@ -10,9 +10,10 @@
 
 AdvancedTIE::AdvancedTIE()
 {
+	lantern = new SpotLight(glm::fvec3(0, 0, 0));
+
 	gObjects.push_back(new Sphere(30, 30, 30));//0
 	gObjects[0]->setMColor(glm::dvec4(0, 0.25, 0.41, 1));
-	lantern = new SpotLight(glm::fvec3(0, 0, 0));
 
 	gObjects.push_back(new Cylinder(8,8,180,30,30));//1
 	gObjects[1]->setMColor(glm::dvec4(0, 0.25, 0.41, 1));
