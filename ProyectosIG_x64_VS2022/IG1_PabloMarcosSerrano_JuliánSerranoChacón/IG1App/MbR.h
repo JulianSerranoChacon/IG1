@@ -7,6 +7,7 @@ public:
 	MbR(int n, glm::dvec3* perfil, int m);
 	virtual ~MbR();
 	static MbR* generaIndexMbR(int mm, int nn, glm::dvec3* perfil);
+	static MbR* generaIndexIncompleto(int mm, int nn, glm::dvec3* perfil, GLdouble angle);
 
 protected:
 	int n_; //para el número de muestras que se toman al girar el pefil alrededor del eje y

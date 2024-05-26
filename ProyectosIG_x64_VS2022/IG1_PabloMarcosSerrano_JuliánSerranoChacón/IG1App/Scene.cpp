@@ -29,6 +29,10 @@
 #include "DirLight.h"
 #include "PosLight.h"
 #include "SpotLight.h"
+#include "IndexOctagon.h"
+#include "TextureTriangle.h"
+#include "HalfPipe.h"
+#include "TieThroughPipe.h"
 #include <glm/gtc/type_ptr.hpp>
 using namespace glm;
 
@@ -360,9 +364,27 @@ void Scene::setScene(int id) {
 			gObjects.push_back(spherebr);
 			break;
 		case 16:
+			indexOct = new IndexOctagon(100);
+			indexOct->setMColor(glm::dvec4(1.0, 0.0, 0.0, 0.0));
+			gObjects.push_back(indexOct);
+			break;
+		case 17:
+			prueba = new TextureTriangle(100);
+			t2 = new Texture();
+			t2->load("../bmps/noche.bmp");
+			prueba->setTexture(t2);
+			gTextures.push_back(t2);
+			gObjects.push_back(prueba);
+			break;
+		case 18:
+			tunel = new HalfPipe(100, 200, 60, 60);
+			tunel->setMColor(glm::dvec4(0, 1, 1, 1));
+			gObjects.push_back(tunel);
+			combo = new TieThroughPipe();
+			gObjects.push_back(combo);
 			break;
 		default:
-				break;
+			break;
 	}
 	ejesRGB = new EjesRGB(400.0);
 	gObjects.push_back(ejesRGB);

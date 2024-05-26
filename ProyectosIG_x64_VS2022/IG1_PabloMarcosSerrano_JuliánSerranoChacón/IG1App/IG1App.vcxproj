@@ -84,10 +84,13 @@
     <ClInclude Include="GlassParapet.h" />
     <ClInclude Include="Grass.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="HalfPipe.h" />
     <ClInclude Include="IG1App.h" />
     <ClInclude Include="IndexedBox.h" />
     <ClInclude Include="IndexMesh.h" />
+    <ClInclude Include="IndexOctagon.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LightSphere.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MbR.h" />
     <ClInclude Include="Mesh.h" />
@@ -108,8 +111,11 @@
     <ClInclude Include="Star3D.h" />
     <ClInclude Include="Tatooine.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureTriangle.h" />
+    <ClInclude Include="TieThroughPipe.h" />
     <ClInclude Include="Top.h" />
     <ClInclude Include="Toroid.h" />
+    <ClInclude Include="Trifuerza.h" />
     <ClInclude Include="Viewport.h" />
     <ClInclude Include="WingAdvanceTIE.h" />
   </ItemGroup>
@@ -128,10 +134,13 @@
     <ClCompile Include="GlassParapet.cpp" />
     <ClCompile Include="Grass.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="HalfPipe.cpp" />
     <ClCompile Include="IG1App.cpp" />
     <ClCompile Include="IndexedBox.cpp" />
     <ClCompile Include="IndexMesh.cpp" />
+    <ClCompile Include="IndexOctagon.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightSphere.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MbR.cpp" />
@@ -153,8 +162,11 @@
     <ClCompile Include="Star3D.cpp" />
     <ClCompile Include="Tatooine.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureTriangle.cpp" />
+    <ClCompile Include="TieThroughPipe.cpp" />
     <ClCompile Include="Top.cpp" />
     <ClCompile Include="Toroid.cpp" />
+    <ClCompile Include="Trifuerza.cpp" />
     <ClCompile Include="Viewport.cpp" />
     <ClCompile Include="WingAdvanceTIE.cpp" />
   </ItemGroup>

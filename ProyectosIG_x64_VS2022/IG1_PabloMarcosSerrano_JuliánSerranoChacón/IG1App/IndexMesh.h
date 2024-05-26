@@ -13,5 +13,8 @@ public:
 	virtual void render() const;
 	virtual void draw() const;
 	static IndexMesh* generateIndexedBox(GLdouble l);
+	static IndexMesh* generateIndexOctagon(GLdouble l);
+	static IndexMesh* generateTetahedron(GLdouble l);
+	static IndexMesh* generateTexturePiramid(GLdouble l);
 };
 

@@ -1,5 +1,6 @@
 ﻿#include "IndexMesh.h"
 #include <iostream>
+#include <math.h>
 
 
 void IndexMesh::render() const {
@@ -97,6 +98,101 @@ IndexMesh* IndexMesh::generateIndexedBox(GLdouble l)
 		// Construir la normal de la cara del triángulo actual
 		mesh->buildNormalVectors(mesh, triangleIndices);
 	}
+
+	return mesh;
+}
+
+IndexMesh* IndexMesh::generateIndexOctagon(GLdouble l)
+{
+	IndexMesh* mesh = new IndexMesh();
+	GLdouble m = l * 0.5; 
+
+	mesh->mNumVertices = 6;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+	mesh->vVertices.emplace_back(0, l, 0);//0
+	mesh->vVertices.emplace_back(-m, 0, m);//1
+	mesh->vVertices.emplace_back(m, 0, m);//2
+	mesh->vVertices.emplace_back(m, 0, -m);//3
+	mesh->vVertices.emplace_back(-m, 0, -m);//4
+	mesh->vVertices.emplace_back(0, -l, 0);//5
+
+	mesh->mNumIndices = 24;
+	mesh->vIndices = new GLuint[24]{
+		0, 2, 1, 0, 3, 2,
+		0, 4, 3, 0, 1, 4,
+		5, 2, 3, 5, 3, 4,
+		5, 4, 1, 5, 1, 2
+	};
+
+	mesh->vNormals.reserve(mesh->mNumIndices);
+	for (int i = 0; i < mesh->mNumVertices; i++)
+		mesh->vNormals.emplace_back(0.0, 0.0, 0.0);
+
+	for (int i = 0; i < mesh->mNumIndices; i += 3) {    // Obtener los índices del triángulo actual
+		std::vector<GLuint> triangleIndices = {
+			mesh->vIndices[i + 2],
+			mesh->vIndices[i + 1],
+			mesh->vIndices[i]
+		};
+
+		// Construir la normal de la cara del triángulo actual
+		mesh->buildNormalVectors(mesh, triangleIndices);
+	}
+
+	return mesh;
+}
+
+IndexMesh* IndexMesh::generateTetahedron(GLdouble l)
+{
+	IndexMesh* mesh = new IndexMesh();
+	GLdouble aux = glm::radians(30.0);
+	GLdouble x = l * sin(aux);
+	GLdouble z = l * cos(aux);
+	GLdouble y = sqrt(4 * z * z - x * x);
+	std::cout << x << " " << y << " " << z << " " << l;
+
+	mesh->mNumVertices = 4;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+	mesh->vVertices.emplace_back(0, l, 0);//0
+	mesh->vVertices.emplace_back(l, 0, 0);//1
+	mesh->vVertices.emplace_back(-x, 0, -z);//2
+	mesh->vVertices.emplace_back(-x, 0, z);//3
+
+
+	mesh->mNumIndices = 12;
+	mesh->vIndices = new GLuint[12]{
+		0, 1, 2, 0, 2, 3,
+		0, 3, 1, 2, 1, 3,
+	};
+
+	mesh->vNormals.reserve(mesh->mNumIndices);
+	for (int i = 0; i < mesh->mNumVertices; i++)
+		mesh->vNormals.emplace_back(0.0, 0.0, 0.0);
+
+	for (int i = 0; i < mesh->mNumIndices; i += 3) {    // Obtener los índices del triángulo actual
+		std::vector<GLuint> triangleIndices = {
+			mesh->vIndices[i + 2],
+			mesh->vIndices[i + 1],
+			mesh->vIndices[i]
+		};
+
+		// Construir la normal de la cara del triángulo actual
+		mesh->buildNormalVectors(mesh, triangleIndices);
+	}
+
+	return mesh;
+	return nullptr;
+}
+
+IndexMesh* IndexMesh::generateTexturePiramid(GLdouble l)
+{
+	IndexMesh* mesh = generateTetahedron(l);
+	mesh->vTexCoords.reserve(mesh->mNumVertices);
+
+	mesh->vTexCoords.emplace_back(glm::dvec2(0.5,0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(1,1));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0,0));
+	mesh->vTexCoords.emplace_back(glm::dvec2(0.5,1));
 
 	return mesh;
 }

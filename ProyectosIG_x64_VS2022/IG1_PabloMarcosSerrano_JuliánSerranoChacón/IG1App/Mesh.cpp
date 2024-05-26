@@ -315,7 +315,6 @@ Mesh* Mesh::generateWingsTexCor(GLdouble w, GLdouble h)
 }
 
 
-
 void
 Mesh::render() const
 {

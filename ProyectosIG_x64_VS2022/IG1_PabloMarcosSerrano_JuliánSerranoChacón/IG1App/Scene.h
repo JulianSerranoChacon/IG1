@@ -34,6 +34,10 @@ class Material;
 class DirLight;
 class PosLight;
 class SpotLight;
+class IndexOctagon;
+class TextureTriangle;
+class HalfPipe;
+class TieThroughPipe;
 
 class Scene
 {
@@ -71,6 +75,10 @@ private:
 	DirLight* dirLight = nullptr;
 	PosLight* posLight = nullptr;
 	SpotLight* spotLight = nullptr;
+	IndexOctagon* indexOct = nullptr;
+	TextureTriangle* prueba = nullptr;
+	HalfPipe* tunel = nullptr;
+	TieThroughPipe* combo = nullptr;
 
 	const int r= 200;
 
