@@ -1,10 +1,1 @@
-﻿  Scene.cpp
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(82,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(82,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(82,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(137,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(137,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(137,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(173,55): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
-C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\IG1App\Scene.cpp(274,56): warning C4244: 'argumento': conversión de 'double' a 'GLubyte'; posible pérdida de datos
-  IG1App.vcxproj -> C:\Users\Pablo\Documents\UNIVERSIDAD\2\IG\IG1\ProyectosIG_x64_VS2022\IG1_PabloMarcosSerrano_JuliánSerranoChacón\bin\IG1AppDebug.exe
+﻿
